@@ -1,0 +1,211 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7F095750-B511-47B8-9AB4-D669BFD69697}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CapaDatos</RootNamespace>
+    <AssemblyName>CapaDatos</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class1.cs" />
+    <Compile Include="Modelo\actividad.cs">
+      <DependentUpon>ModeloGesproy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\actividad_detalle.cs">
+      <DependentUpon>ModeloGesproy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\actividad_mga.cs">
+      <DependentUpon>ModeloGesproy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\acuerdoAprobacion.cs">
+      <DependentUpon>ModeloGesproy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\alerta.cs">
+      <DependentUpon>ModeloGesproy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\auditoria.cs">
+      <DependentUpon>ModeloGesproy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\contactoEntidadEjecutora.cs">
+      <DependentUpon>ModeloGesproy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\contactoEntidadEjecutora_has_entidadEjecutora1.cs">
+      <DependentUpon>ModeloGesproy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\cuenta.cs">
+      <DependentUpon>ModeloGesproy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\cumplimiento_requisitos.cs">
+      <DependentUpon>ModeloGesproy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\entidadEjecutora.cs">
+      <DependentUpon>ModeloGesproy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\fuenteFinanciacion.cs">
+      <DependentUpon>ModeloGesproy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\fuenteFinanciacion_has_proyecto.cs">
+      <DependentUpon>ModeloGesproy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\fuente_financiacion.cs">
+      <DependentUpon>ModeloGesproy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\fuente_financiacion_detalle.cs">
+      <DependentUpon>ModeloGesproy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\fuente_financiacion_has_proyecto.cs">
+      <DependentUpon>ModeloGesproy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\incorporacion_presupuestal.cs">
+      <DependentUpon>ModeloGesproy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\indicador.cs">
+      <DependentUpon>ModeloGesproy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\indicador_gestion.cs">
+      <DependentUpon>ModeloGesproy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\indicador_gestion_detalle.cs">
+      <DependentUpon>ModeloGesproy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\indicador_producto.cs">
+      <DependentUpon>ModeloGesproy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\indicador_producto_detalle.cs">
+      <DependentUpon>ModeloGesproy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\insumo.cs">
+      <DependentUpon>ModeloGesproy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\lista_indicador.cs">
+      <DependentUpon>ModeloGesproy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\lis_detalle.cs">
+      <DependentUpon>ModeloGesproy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\lis_nombre.cs">
+      <DependentUpon>ModeloGesproy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\ModeloGesproy.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModeloGesproy.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\ModeloGesproy.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModeloGesproy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\ModeloGesproy.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModeloGesproy.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\objetivo_especifico.cs">
+      <DependentUpon>ModeloGesproy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\producto.cs">
+      <DependentUpon>ModeloGesproy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\proyecto.cs">
+      <DependentUpon>ModeloGesproy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\proyecto_has_usuario.cs">
+      <DependentUpon>ModeloGesproy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\reintegro.cs">
+      <DependentUpon>ModeloGesproy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\rol.cs">
+      <DependentUpon>ModeloGesproy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\rubro.cs">
+      <DependentUpon>ModeloGesproy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\sysdiagrams.cs">
+      <DependentUpon>ModeloGesproy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\usuario.cs">
+      <DependentUpon>ModeloGesproy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\usuario_has_rol_has_proyecto.cs">
+      <DependentUpon>ModeloGesproy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="Modelo\ModeloGesproy.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModeloGesproy.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="Modelo\ModeloGesproy.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModeloGesproy.edmx</DependentUpon>
+      <LastGenOutput>ModeloGesproy.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Modelo\ModeloGesproy.edmx.diagram">
+      <DependentUpon>ModeloGesproy.edmx</DependentUpon>
+    </None>
+    <None Include="Modelo\ModeloGesproy.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModeloGesproy.edmx</DependentUpon>
+      <LastGenOutput>ModeloGesproy.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
