@@ -1,0 +1,130 @@
+﻿@model CapaDatos.Modelo.usuario
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>usuario</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.tipoIdentificacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tipoIdentificacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.identificacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.identificacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nombreUno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombreUno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nombreDos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombreDos)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.apellidoUno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.apellidoUno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.apellidoDos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.apellidoDos)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.telFijo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.telFijo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.telCelular)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.telCelular)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tipoVinculacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tipoVinculacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cargo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cargo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fechaCulminacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fechaCulminacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.usuario1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.usuario1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.clave)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.clave)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idUsuario }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

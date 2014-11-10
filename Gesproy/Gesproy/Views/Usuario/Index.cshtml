@@ -1,0 +1,111 @@
+﻿@model IEnumerable<CapaDatos.Modelo.usuario>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.tipoIdentificacion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.identificacion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nombreUno)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nombreDos)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.apellidoUno)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.apellidoDos)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.telFijo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.telCelular)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tipoVinculacion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cargo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fechaCulminacion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.usuario1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.clave)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.tipoIdentificacion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.identificacion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombreUno)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombreDos)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.apellidoUno)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.apellidoDos)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.telFijo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.telCelular)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tipoVinculacion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cargo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fechaCulminacion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.usuario1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.clave)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idUsuario }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idUsuario }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idUsuario })
+        </td>
+    </tr>
+}
+
+</table>
