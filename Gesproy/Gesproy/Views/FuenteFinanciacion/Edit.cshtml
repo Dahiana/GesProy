@@ -1,0 +1,74 @@
+﻿@model CapaDatos.Modelo.fuente_financiacion
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>fuente_financiacion</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.fuente_financiacioncol, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.fuente_financiacioncol)
+                @Html.ValidationMessageFor(model => model.fuente_financiacioncol)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.lis_detalle_id_etapa, "lis_detalle_id_etapa", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("lis_detalle_id_etapa", String.Empty)
+                @Html.ValidationMessageFor(model => model.lis_detalle_id_etapa)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.lis_detalle_id_tipoenttidad, "lis_detalle_id_tipoenttidad", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("lis_detalle_id_tipoenttidad", String.Empty)
+                @Html.ValidationMessageFor(model => model.lis_detalle_id_tipoenttidad)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.lis_detalle_id_tiporecurso, "lis_detalle_id_tiporecurso", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("lis_detalle_id_tiporecurso", String.Empty)
+                @Html.ValidationMessageFor(model => model.lis_detalle_id_tiporecurso)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.lis_detalle_id_identidad, "lis_detalle_id_identidad", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("lis_detalle_id_identidad", String.Empty)
+                @Html.ValidationMessageFor(model => model.lis_detalle_id_identidad)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
