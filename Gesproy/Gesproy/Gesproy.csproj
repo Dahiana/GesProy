@@ -121,10 +121,12 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ContactoHasEntidadController.cs" />
     <Compile Include="Controllers\ContactoEntidadEjecutoraController.cs" />
     <Compile Include="Controllers\EntidadEjecutoraController.cs" />
     <Compile Include="Controllers\FuenteFinanciacionController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProyectoController.cs" />
     <Compile Include="Controllers\RolController.cs" />
     <Compile Include="Controllers\RubroController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
@@ -194,6 +196,16 @@
     <Content Include="Views\ContactoEntidadEjecutora\Details.cshtml" />
     <Content Include="Views\ContactoEntidadEjecutora\Edit.cshtml" />
     <Content Include="Views\ContactoEntidadEjecutora\Index.cshtml" />
+    <Content Include="Views\ContactoHasEntidad\Create.cshtml" />
+    <Content Include="Views\ContactoHasEntidad\Delete.cshtml" />
+    <Content Include="Views\ContactoHasEntidad\Details.cshtml" />
+    <Content Include="Views\ContactoHasEntidad\Edit.cshtml" />
+    <Content Include="Views\ContactoHasEntidad\Index.cshtml" />
+    <Content Include="Views\Proyecto\Create.cshtml" />
+    <Content Include="Views\Proyecto\Delete.cshtml" />
+    <Content Include="Views\Proyecto\Details.cshtml" />
+    <Content Include="Views\Proyecto\Edit.cshtml" />
+    <Content Include="Views\Proyecto\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CapaDatos\CapaDatos.csproj">

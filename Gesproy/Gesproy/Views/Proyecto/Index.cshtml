@@ -1,0 +1,99 @@
+﻿@model IEnumerable<CapaDatos.Modelo.proyecto>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.objetivo_general)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ano_final)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ano_inicial)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fecha_creacion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ava_fisico)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ava_financiero)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.num_beneficiarios)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.total_proyecto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.entidadEjecutora.nit)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lis_detalle.codigo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lis_detalle1.codigo)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.objetivo_general)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ano_final)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ano_inicial)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fecha_creacion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ava_fisico)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ava_financiero)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.num_beneficiarios)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.total_proyecto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.entidadEjecutora.nit)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lis_detalle.codigo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lis_detalle1.codigo)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.bpin }) |
+            @Html.ActionLink("Details", "Details", new { id=item.bpin }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.bpin })
+        </td>
+    </tr>
+}
+
+</table>
