@@ -124,6 +124,7 @@
     <Compile Include="Controllers\EntidadEjecutoraController.cs" />
     <Compile Include="Controllers\FuenteFinanciacionController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\RolController.cs" />
     <Compile Include="Controllers\RubroController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Global.asax.cs">
@@ -182,6 +183,11 @@
     <Content Include="Views\Rubro\Details.cshtml" />
     <Content Include="Views\Rubro\Edit.cshtml" />
     <Content Include="Views\Rubro\Index.cshtml" />
+    <Content Include="Views\Rol\Create.cshtml" />
+    <Content Include="Views\Rol\Delete.cshtml" />
+    <Content Include="Views\Rol\Details.cshtml" />
+    <Content Include="Views\Rol\Edit.cshtml" />
+    <Content Include="Views\Rol\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CapaDatos\CapaDatos.csproj">
