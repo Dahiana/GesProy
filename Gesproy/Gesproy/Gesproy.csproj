@@ -121,6 +121,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ContactoEntidadEjecutoraController.cs" />
     <Compile Include="Controllers\EntidadEjecutoraController.cs" />
     <Compile Include="Controllers\FuenteFinanciacionController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -188,6 +189,11 @@
     <Content Include="Views\Rol\Details.cshtml" />
     <Content Include="Views\Rol\Edit.cshtml" />
     <Content Include="Views\Rol\Index.cshtml" />
+    <Content Include="Views\ContactoEntidadEjecutora\Create.cshtml" />
+    <Content Include="Views\ContactoEntidadEjecutora\Delete.cshtml" />
+    <Content Include="Views\ContactoEntidadEjecutora\Details.cshtml" />
+    <Content Include="Views\ContactoEntidadEjecutora\Edit.cshtml" />
+    <Content Include="Views\ContactoEntidadEjecutora\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CapaDatos\CapaDatos.csproj">

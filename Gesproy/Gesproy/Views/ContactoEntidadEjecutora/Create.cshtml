@@ -1,0 +1,121 @@
+﻿@model CapaDatos.Modelo.contactoEntidadEjecutora
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>contactoEntidadEjecutora</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.idContactoEntidad, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.idContactoEntidad)
+                @Html.ValidationMessageFor(model => model.idContactoEntidad)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.tipoId, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.tipoId)
+                @Html.ValidationMessageFor(model => model.tipoId)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.identificacion, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.identificacion)
+                @Html.ValidationMessageFor(model => model.identificacion)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.nombre, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.nombre)
+                @Html.ValidationMessageFor(model => model.nombre)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.apellido, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.apellido)
+                @Html.ValidationMessageFor(model => model.apellido)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.telFijo, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.telFijo)
+                @Html.ValidationMessageFor(model => model.telFijo)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.email, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.email)
+                @Html.ValidationMessageFor(model => model.email)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.estado, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.estado)
+                @Html.ValidationMessageFor(model => model.estado)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.telCelular, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.telCelular)
+                @Html.ValidationMessageFor(model => model.telCelular)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.tipoContacto, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.tipoContacto)
+                @Html.ValidationMessageFor(model => model.tipoContacto)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.representanteLegal, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.representanteLegal)
+                @Html.ValidationMessageFor(model => model.representanteLegal)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
