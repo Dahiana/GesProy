@@ -1,0 +1,112 @@
+﻿@model CapaDatos.Modelo.incorporacion_presupuestal
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>incorporacion_presupuestal</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.numero_acto_administrativo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.numero_acto_administrativo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.vigencia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.vigencia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.valor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.valor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.aplica_vigencia_futura)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.aplica_vigencia_futura)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.numero_autorizacion_futura)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.numero_autorizacion_futura)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fuente_financiacion.fuente_financiacioncol)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fuente_financiacion.fuente_financiacioncol)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lis_detalle.codigo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lis_detalle.codigo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lis_detalle1.codigo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lis_detalle1.codigo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.proyecto.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.proyecto.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.rubro.descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.rubro.descripcion)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

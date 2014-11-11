@@ -1,0 +1,75 @@
+﻿@model IEnumerable<CapaDatos.Modelo.actividad>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fecha_inicio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fecha_fin)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cantidad_total)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.valor_total)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.por_ponderacion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.actividad_mga.descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lis_detalle.codigo)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fecha_inicio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fecha_fin)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cantidad_total)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.valor_total)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.por_ponderacion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.actividad_mga.descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lis_detalle.codigo)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

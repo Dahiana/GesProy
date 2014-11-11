@@ -1,0 +1,58 @@
+﻿@model CapaDatos.Modelo.actividad_mga
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>actividad_mga</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.descripcion, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.descripcion)
+                @Html.ValidationMessageFor(model => model.descripcion)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.lis_detalle_id_etapa, "lis_detalle_id_etapa", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("lis_detalle_id_etapa", String.Empty)
+                @Html.ValidationMessageFor(model => model.lis_detalle_id_etapa)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.producto_id, "producto_id", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("producto_id", String.Empty)
+                @Html.ValidationMessageFor(model => model.producto_id)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

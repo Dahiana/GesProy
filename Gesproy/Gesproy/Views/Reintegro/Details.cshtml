@@ -1,0 +1,74 @@
+﻿@model CapaDatos.Modelo.reintegro
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>reintegro</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.documento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.documento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.num_documento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.num_documento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.rendimiento_financiero)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.rendimiento_financiero)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.valor_reintegro_no_ejecutado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.valor_reintegro_no_ejecutado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.total_reintegro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.total_reintegro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cuenta.tipo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cuenta.tipo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

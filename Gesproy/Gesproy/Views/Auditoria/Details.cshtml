@@ -1,0 +1,90 @@
+﻿@model CapaDatos.Modelo.auditoria
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>auditoria</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.tipo_foro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tipo_foro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre_foro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre_foro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.grupo_encargado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.grupo_encargado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.asistentes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.asistentes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.acompanamiento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.acompanamiento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.grupo_acompanamiento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.grupo_acompanamiento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lis_detalle.codigo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lis_detalle.codigo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.proyecto.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.proyecto.nombre)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

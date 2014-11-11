@@ -1,0 +1,56 @@
+﻿@model CapaDatos.Modelo.actividad_detalle
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>actividad_detalle</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cantidad_avance)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cantidad_avance)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.porc_ejecutado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.porc_ejecutado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.actividad.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.actividad.nombre)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

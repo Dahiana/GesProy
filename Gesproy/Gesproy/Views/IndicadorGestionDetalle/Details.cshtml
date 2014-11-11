@@ -1,0 +1,42 @@
+﻿@model CapaDatos.Modelo.indicador_gestion_detalle
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>indicador_gestion_detalle</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.vigencia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.vigencia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.valor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.valor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.indicador_gestion.id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.indicador_gestion.id)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

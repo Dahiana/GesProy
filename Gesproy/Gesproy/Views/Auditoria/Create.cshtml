@@ -1,0 +1,113 @@
+﻿@model CapaDatos.Modelo.auditoria
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>auditoria</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.id, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.id)
+                @Html.ValidationMessageFor(model => model.id)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.tipo_foro, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.tipo_foro)
+                @Html.ValidationMessageFor(model => model.tipo_foro)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.nombre_foro, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.nombre_foro)
+                @Html.ValidationMessageFor(model => model.nombre_foro)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.fecha, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.fecha)
+                @Html.ValidationMessageFor(model => model.fecha)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.grupo_encargado, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.grupo_encargado)
+                @Html.ValidationMessageFor(model => model.grupo_encargado)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.asistentes, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.asistentes)
+                @Html.ValidationMessageFor(model => model.asistentes)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.acompanamiento, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.acompanamiento)
+                @Html.ValidationMessageFor(model => model.acompanamiento)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.grupo_acompanamiento, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.grupo_acompanamiento)
+                @Html.ValidationMessageFor(model => model.grupo_acompanamiento)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.proyecto_bpin, "proyecto_bpin", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("proyecto_bpin", String.Empty)
+                @Html.ValidationMessageFor(model => model.proyecto_bpin)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.lis_detalle_id_municipio, "lis_detalle_id_municipio", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("lis_detalle_id_municipio", String.Empty)
+                @Html.ValidationMessageFor(model => model.lis_detalle_id_municipio)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

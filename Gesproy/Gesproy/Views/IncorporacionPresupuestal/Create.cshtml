@@ -1,0 +1,129 @@
+﻿@model CapaDatos.Modelo.incorporacion_presupuestal
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>incorporacion_presupuestal</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.id, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.id)
+                @Html.ValidationMessageFor(model => model.id)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.numero_acto_administrativo, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.numero_acto_administrativo)
+                @Html.ValidationMessageFor(model => model.numero_acto_administrativo)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.fecha, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.fecha)
+                @Html.ValidationMessageFor(model => model.fecha)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.vigencia, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.vigencia)
+                @Html.ValidationMessageFor(model => model.vigencia)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.valor, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.valor)
+                @Html.ValidationMessageFor(model => model.valor)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.aplica_vigencia_futura, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.aplica_vigencia_futura)
+                @Html.ValidationMessageFor(model => model.aplica_vigencia_futura)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.numero_autorizacion_futura, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.numero_autorizacion_futura)
+                @Html.ValidationMessageFor(model => model.numero_autorizacion_futura)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.proyecto_bpin, "proyecto_bpin", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("proyecto_bpin", String.Empty)
+                @Html.ValidationMessageFor(model => model.proyecto_bpin)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.lis_detalle_id_tipo_acto_adm, "lis_detalle_id_tipo_acto_adm", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("lis_detalle_id_tipo_acto_adm", String.Empty)
+                @Html.ValidationMessageFor(model => model.lis_detalle_id_tipo_acto_adm)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.lis_detalle_id_tipo_vigencia_futura, "lis_detalle_id_tipo_vigencia_futura", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("lis_detalle_id_tipo_vigencia_futura", String.Empty)
+                @Html.ValidationMessageFor(model => model.lis_detalle_id_tipo_vigencia_futura)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.rubro_id, "rubro_id", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("rubro_id", String.Empty)
+                @Html.ValidationMessageFor(model => model.rubro_id)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.fuente_financiacion_id, "fuente_financiacion_id", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("fuente_financiacion_id", String.Empty)
+                @Html.ValidationMessageFor(model => model.fuente_financiacion_id)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

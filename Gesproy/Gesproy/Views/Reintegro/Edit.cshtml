@@ -1,0 +1,90 @@
+﻿@model CapaDatos.Modelo.reintegro
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>reintegro</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.fecha, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.fecha)
+                @Html.ValidationMessageFor(model => model.fecha)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.documento, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.documento)
+                @Html.ValidationMessageFor(model => model.documento)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.num_documento, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.num_documento)
+                @Html.ValidationMessageFor(model => model.num_documento)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.rendimiento_financiero, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.rendimiento_financiero)
+                @Html.ValidationMessageFor(model => model.rendimiento_financiero)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.valor_reintegro_no_ejecutado, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.valor_reintegro_no_ejecutado)
+                @Html.ValidationMessageFor(model => model.valor_reintegro_no_ejecutado)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.total_reintegro, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.total_reintegro)
+                @Html.ValidationMessageFor(model => model.total_reintegro)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.cuenta_numero, "cuenta_numero", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("cuenta_numero", String.Empty)
+                @Html.ValidationMessageFor(model => model.cuenta_numero)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

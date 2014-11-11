@@ -1,0 +1,50 @@
+﻿@model CapaDatos.Modelo.cumplimiento_requisitos
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>cumplimiento_requisitos</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.numero_doc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.numero_doc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cumplimiento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cumplimiento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lis_detalle.codigo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lis_detalle.codigo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

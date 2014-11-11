@@ -1,0 +1,42 @@
+﻿@model CapaDatos.Modelo.proyecto_has_usuario_has_rol
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>proyecto_has_usuario_has_rol</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.proyecto.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.proyecto.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.rol.nombreRol)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.rol.nombreRol)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.usuario.tipoIdentificacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.usuario.tipoIdentificacion)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

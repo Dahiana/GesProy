@@ -1,0 +1,74 @@
+﻿@model CapaDatos.Modelo.acuerdoAprobacion
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>acuerdoAprobacion</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.numeroAcuerdo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.numeroAcuerdo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fechaAcuerdo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fechaAcuerdo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.valorAcuerdo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.valorAcuerdo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.vigencia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.vigencia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fuente_financiacion.fuente_financiacioncol)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fuente_financiacion.fuente_financiacioncol)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lis_detalle.codigo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lis_detalle.codigo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.proyecto.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.proyecto.nombre)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idAcuerdoAprobacion }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

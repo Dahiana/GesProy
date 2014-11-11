@@ -1,0 +1,51 @@
+﻿@model IEnumerable<CapaDatos.Modelo.actividad_detalle>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.fecha)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cantidad_avance)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.porc_ejecutado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.actividad.nombre)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.fecha)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cantidad_avance)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.porc_ejecutado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.actividad.nombre)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

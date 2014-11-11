@@ -1,0 +1,82 @@
+﻿@model CapaDatos.Modelo.actividad
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>actividad</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_inicio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_inicio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_fin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_fin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cantidad_total)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cantidad_total)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.valor_total)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.valor_total)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.por_ponderacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.por_ponderacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.actividad_mga.descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.actividad_mga.descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lis_detalle.codigo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lis_detalle.codigo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

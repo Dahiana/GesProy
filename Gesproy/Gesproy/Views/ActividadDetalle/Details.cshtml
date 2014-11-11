@@ -1,0 +1,50 @@
+﻿@model CapaDatos.Modelo.actividad_detalle
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>actividad_detalle</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cantidad_avance)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cantidad_avance)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.porc_ejecutado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.porc_ejecutado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.actividad.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.actividad.nombre)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,69 @@
+﻿@model IEnumerable<CapaDatos.Modelo.acuerdoAprobacion>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.numeroAcuerdo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fechaAcuerdo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.valorAcuerdo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.vigencia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fuente_financiacion.fuente_financiacioncol)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lis_detalle.codigo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.proyecto.nombre)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.numeroAcuerdo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fechaAcuerdo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.valorAcuerdo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.vigencia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fuente_financiacion.fuente_financiacioncol)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lis_detalle.codigo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.proyecto.nombre)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idAcuerdoAprobacion }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idAcuerdoAprobacion }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idAcuerdoAprobacion })
+        </td>
+    </tr>
+}
+
+</table>

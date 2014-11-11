@@ -1,0 +1,69 @@
+﻿@model IEnumerable<CapaDatos.Modelo.reintegro>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.fecha)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.documento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.num_documento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.rendimiento_financiero)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.valor_reintegro_no_ejecutado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.total_reintegro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cuenta.tipo)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.fecha)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.documento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.num_documento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.rendimiento_financiero)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.valor_reintegro_no_ejecutado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.total_reintegro)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cuenta.tipo)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>
