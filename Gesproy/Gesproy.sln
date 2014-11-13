@@ -7,6 +7,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gesproy", "Gesproy\Gesproy.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapaDatos", "CapaDatos\CapaDatos.csproj", "{7F095750-B511-47B8-9AB4-D669BFD69697}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.Presentacion", "1.Presentacion", "{153E6C36-2326-4D08-850C-47E0D6381671}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2.Aplicacion", "2.Aplicacion", "{4197F1E4-E6E8-4489-B4F9-4E7954B0553C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.Infraestructura", "4.Infraestructura", "{1BCCCECE-758E-4B81-9BCC-393DCD9E59F9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.Dominio", "3.Dominio", "{D2CA639C-1A6F-4FE1-B734-71E8E8737E0F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +32,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{042A689F-B328-4604-B39E-AE7FF44E232C} = {153E6C36-2326-4D08-850C-47E0D6381671}
+		{7F095750-B511-47B8-9AB4-D669BFD69697} = {1BCCCECE-758E-4B81-9BCC-393DCD9E59F9}
 	EndGlobalSection
 EndGlobal
