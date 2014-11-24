@@ -159,6 +159,9 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\style.css" />
+    <Content Include="Content\style.ie7.css" />
+    <Content Include="Content\style.responsive.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -172,6 +175,49 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="Content\plantillagesproy\images\BG.jpg" />
+    <Content Include="Content\plantillagesproy\images\blockbullets.png" />
+    <Content Include="Content\plantillagesproy\images\footerfacebookicon.png" />
+    <Content Include="Content\plantillagesproy\images\footerrssicon.png" />
+    <Content Include="Content\plantillagesproy\images\footertwittericon.png" />
+    <Content Include="Content\plantillagesproy\images\header.jpg" />
+    <Content Include="Content\plantillagesproy\images\input_left.png" />
+    <Content Include="Content\plantillagesproy\images\input_middle.png" />
+    <Content Include="Content\plantillagesproy\images\input_right.png" />
+    <Content Include="Content\plantillagesproy\images\mailicon.png" />
+    <Content Include="Content\plantillagesproy\images\menuseparator.png" />
+    <Content Include="Content\plantillagesproy\images\nav.png" />
+    <Content Include="Content\plantillagesproy\images\no-avatar.jpg" />
+    <Content Include="Content\plantillagesproy\images\object345940188.png" />
+    <Content Include="Content\plantillagesproy\images\page.png" />
+    <Content Include="Content\plantillagesproy\images\pageglare.png" />
+    <Content Include="Content\plantillagesproy\images\passicon.png" />
+    <Content Include="Content\plantillagesproy\images\postbullets.png" />
+    <Content Include="Content\plantillagesproy\images\postemailicon.png" />
+    <Content Include="Content\plantillagesproy\images\postpdficon.png" />
+    <Content Include="Content\plantillagesproy\images\postprinticon.png" />
+    <Content Include="Content\plantillagesproy\images\postquote.png" />
+    <Content Include="Content\plantillagesproy\images\preloader-01.gif" />
+    <Content Include="Content\plantillagesproy\images\spacer.gif" />
+    <Content Include="Content\plantillagesproy\images\submit.png" />
+    <Content Include="Content\plantillagesproy\images\submit_hover.png" />
+    <Content Include="Content\plantillagesproy\images\template_preview.png" />
+    <Content Include="Content\plantillagesproy\images\wrapper_bottom.png" />
+    <Content Include="Content\plantillagesproy\images\wrapper_middle.png" />
+    <Content Include="Content\plantillagesproy\images\wrapper_top.png" />
+    <Content Include="Content\plantillagesproy\index.html" />
+    <Content Include="Content\plantillagesproy\index2.html" />
+    <Content Include="Content\plantillagesproy\inicio.html" />
+    <Content Include="Content\plantillagesproy\jquery.js" />
+    <Content Include="Content\plantillagesproy\js\jquery.js" />
+    <Content Include="Content\plantillagesproy\js\jquery.query-2.1.7.js" />
+    <Content Include="Content\plantillagesproy\js\rainbows.js" />
+    <Content Include="Content\plantillagesproy\menu.html" />
+    <Content Include="Content\plantillagesproy\script.js" />
+    <Content Include="Content\plantillagesproy\script.responsive.js" />
+    <Content Include="Content\plantillagesproy\style.css" />
+    <Content Include="Content\plantillagesproy\style.ie7.css" />
+    <Content Include="Content\plantillagesproy\style.responsive.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -332,6 +378,7 @@
     <Content Include="Views\ActividadDetalle\Details.cshtml" />
     <Content Include="Views\ActividadDetalle\Edit.cshtml" />
     <Content Include="Views\ActividadDetalle\Index.cshtml" />
+    <Content Include="Views\Shared\_InicioGeneral.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CapaDatos\CapaDatos.csproj">

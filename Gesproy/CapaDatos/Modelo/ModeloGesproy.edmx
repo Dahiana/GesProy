@@ -1,0 +1,2909 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="bd_gesproyModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="actividad">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="fecha_inicio" Type="date" />
+          <Property Name="fecha_fin" Type="date" />
+          <Property Name="cantidad_total" Type="float" />
+          <Property Name="valor_total" Type="float" />
+          <Property Name="por_ponderacion" Type="float" />
+          <Property Name="actividad_mga_id" Type="int" Nullable="false" />
+          <Property Name="lis_detalle_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="actividad_detalle">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="fecha" Type="date" />
+          <Property Name="cantidad_avance" Type="float" />
+          <Property Name="actividad_id" Type="int" Nullable="false" />
+          <Property Name="porc_ejecutado" Type="float" />
+        </EntityType>
+        <EntityType Name="actividad_mga">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="45" />
+          <Property Name="lis_detalle_id_etapa" Type="int" Nullable="false" />
+          <Property Name="producto_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="acuerdoAprobacion">
+          <Key>
+            <PropertyRef Name="idAcuerdoAprobacion" />
+          </Key>
+          <Property Name="idAcuerdoAprobacion" Type="int" Nullable="false" />
+          <Property Name="numeroAcuerdo" Type="varchar" MaxLength="45" />
+          <Property Name="fechaAcuerdo" Type="varchar" MaxLength="45" />
+          <Property Name="valorAcuerdo" Type="int" />
+          <Property Name="vigencia" Type="int" />
+          <Property Name="fuente_financiacion_id" Type="int" Nullable="false" />
+          <Property Name="proyecto_bpin" Type="int" Nullable="false" />
+          <Property Name="lis_detalle_id_ocad" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="alerta">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="200" />
+          <Property Name="descripcion" Type="varchar" MaxLength="300" />
+          <Property Name="proyecto_bpin" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="auditoria">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="tipo_foro" Type="varchar" MaxLength="100" />
+          <Property Name="nombre_foro" Type="varchar" MaxLength="100" />
+          <Property Name="fecha" Type="date" />
+          <Property Name="grupo_encargado" Type="varchar" MaxLength="100" />
+          <Property Name="asistentes" Type="int" />
+          <Property Name="acompanamiento" Type="bit" />
+          <Property Name="grupo_acompanamiento" Type="varchar" MaxLength="200" />
+          <Property Name="proyecto_bpin" Type="int" Nullable="false" />
+          <Property Name="lis_detalle_id_municipio" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="contactoEntidadEjecutora">
+          <Key>
+            <PropertyRef Name="idContactoEntidad" />
+          </Key>
+          <Property Name="idContactoEntidad" Type="int" Nullable="false" />
+          <Property Name="tipoId" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="identificacion" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="apellido" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="telFijo" Type="varchar" MaxLength="45" />
+          <Property Name="email" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="estado" Type="varchar" MaxLength="100" />
+          <Property Name="telCelular" Type="varchar" MaxLength="100" />
+          <Property Name="tipoContacto" Type="varchar" MaxLength="100" />
+          <Property Name="representanteLegal" Type="bit" />
+        </EntityType>
+        <EntityType Name="contactoEntidadEjecutora_has_entidadEjecutora">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="entidadEjecutora_idEntidadEjecutora1" Type="int" Nullable="false" />
+          <Property Name="contactoEntidadEjecutora_idContactoEntidad1" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="cuenta">
+          <Key>
+            <PropertyRef Name="numero" />
+          </Key>
+          <Property Name="numero" Type="int" Nullable="false" />
+          <Property Name="tipo" Type="varchar" MaxLength="45" />
+          <Property Name="nombre" Type="varchar" MaxLength="45" />
+          <Property Name="estado" Type="varchar" MaxLength="45" />
+          <Property Name="proyecto_bpin" Type="int" Nullable="false" />
+          <Property Name="lis_detalle_id_banco" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="cumplimiento_requisitos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="fecha" Type="date" />
+          <Property Name="numero_doc" Type="int" />
+          <Property Name="cumplimiento" Type="varchar" MaxLength="200" />
+          <Property Name="lis_detalle_id_ocad" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="entidadEjecutora">
+          <Key>
+            <PropertyRef Name="idEntidadEjecutora" />
+          </Key>
+          <Property Name="idEntidadEjecutora" Type="int" Nullable="false" />
+          <Property Name="nit" Type="nvarchar" MaxLength="45" />
+          <Property Name="nombre" Type="nvarchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="fuente_financiacion">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="fuente_financiacioncol" Type="varchar" MaxLength="45" />
+          <Property Name="lis_detalle_id_etapa" Type="int" Nullable="false" />
+          <Property Name="lis_detalle_id_tipoenttidad" Type="int" Nullable="false" />
+          <Property Name="lis_detalle_id_tiporecurso" Type="int" Nullable="false" />
+          <Property Name="lis_detalle_id_identidad" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="fuente_financiacion_detalle">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="vigencia" Type="int" />
+          <Property Name="valor" Type="float" />
+          <Property Name="fuente_financiacion_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="fuente_financiacion_has_proyecto">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="fuente_financiacion_id" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="proyecto_bpin" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="incorporacion_presupuestal">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="numero_acto_administrativo" Type="int" />
+          <Property Name="fecha" Type="date" />
+          <Property Name="vigencia" Type="int" />
+          <Property Name="valor" Type="float" />
+          <Property Name="aplica_vigencia_futura" Type="bit" />
+          <Property Name="numero_autorizacion_futura" Type="int" />
+          <Property Name="proyecto_bpin" Type="int" Nullable="false" />
+          <Property Name="lis_detalle_id_tipo_acto_adm" Type="int" Nullable="false" />
+          <Property Name="lis_detalle_id_tipo_vigencia_futura" Type="int" Nullable="false" />
+          <Property Name="rubro_id" Type="int" Nullable="false" />
+          <Property Name="fuente_financiacion_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="indicador">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="200" />
+          <Property Name="meta" Type="float" />
+          <Property Name="lis_detalle_id_unidadmedida" Type="int" Nullable="false" />
+          <Property Name="proyecto_bpin" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="indicador_gestion">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="lista_indicador_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="indicador_gestion_detalle">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="indicador_gestion_id" Type="int" Nullable="false" />
+          <Property Name="vigencia" Type="int" />
+          <Property Name="valor" Type="float" />
+        </EntityType>
+        <EntityType Name="indicador_producto">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="lista_indicador_id" Type="int" Nullable="false" />
+          <Property Name="producto_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="indicador_producto_detalle">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="indicador_producto_id" Type="int" Nullable="false" />
+          <Property Name="vigencia" Type="int" />
+          <Property Name="valor" Type="float" />
+        </EntityType>
+        <EntityType Name="insumo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="vigencia" Type="int" />
+          <Property Name="valor" Type="float" />
+          <Property Name="actividad_id" Type="int" Nullable="false" />
+          <Property Name="lis_detalle_id_tipo" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="lis_detalle">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="unidades" Type="int" />
+          <Property Name="codigo" Type="nvarchar" MaxLength="20" />
+          <Property Name="descripcion" Type="nvarchar" MaxLength="1000" />
+          <Property Name="lis_nombre_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="lis_nombre">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="nombre" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="lista_indicador">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="lis_detalle_id_tipoindicador" Type="int" Nullable="false" />
+          <Property Name="lis_detalle_id_sector" Type="int" Nullable="false" />
+          <Property Name="codigo_indicador" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="nombre_indicador" Type="varchar" MaxLength="200" />
+          <Property Name="unidad" Type="varchar" MaxLength="30" />
+          <Property Name="formula" Type="varchar" MaxLength="200" />
+          <Property Name="descripcion" Type="varchar" MaxLength="1200" />
+        </EntityType>
+        <EntityType Name="objetivo_especifico">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="250" />
+          <Property Name="tipo" Type="varchar" MaxLength="45" />
+          <Property Name="proyecto_bpin" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="producto">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="500" />
+          <Property Name="cantidad" Type="float" />
+          <Property Name="objetivo_especifico_id" Type="int" Nullable="false" />
+          <Property Name="lis_detalle_id_unidadmedida" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="proyecto">
+          <Key>
+            <PropertyRef Name="bpin" />
+          </Key>
+          <Property Name="bpin" Type="int" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="250" />
+          <Property Name="objetivo_general" Type="varchar" MaxLength="250" />
+          <Property Name="ano_final" Type="int" />
+          <Property Name="ano_inicial" Type="int" />
+          <Property Name="fecha_creacion" Type="date" />
+          <Property Name="entidadEjecutora_idEntidadEjecutora" Type="int" Nullable="false" />
+          <Property Name="ava_fisico" Type="float" />
+          <Property Name="ava_financiero" Type="float" />
+          <Property Name="num_beneficiarios" Type="int" />
+          <Property Name="total_proyecto" Type="int" />
+          <Property Name="lis_detalle_id_sector" Type="int" Nullable="false" />
+          <Property Name="lis_detalle_id_localizacion" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="proyecto_has_usuario_has_rol">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="usuario_idUsuario" Type="int" Nullable="false" />
+          <Property Name="rol_idRol" Type="int" Nullable="false" />
+          <Property Name="proyecto_bpin" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="reintegro">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="fecha" Type="date" />
+          <Property Name="documento" Type="varchar" MaxLength="200" />
+          <Property Name="num_documento" Type="int" />
+          <Property Name="rendimiento_financiero" Type="float" />
+          <Property Name="valor_reintegro_no_ejecutado" Type="float" />
+          <Property Name="total_reintegro" Type="float" />
+          <Property Name="cuenta_numero" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="rol">
+          <Key>
+            <PropertyRef Name="idRol" />
+          </Key>
+          <Property Name="idRol" Type="int" Nullable="false" />
+          <Property Name="nombreRol" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="45" Nullable="false" />
+        </EntityType>
+        <EntityType Name="rubro">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="usuario">
+          <Key>
+            <PropertyRef Name="idUsuario" />
+          </Key>
+          <Property Name="idUsuario" Type="int" Nullable="false" />
+          <Property Name="tipoIdentificacion" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="identificacion" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="nombreUno" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="nombreDos" Type="varchar" MaxLength="45" />
+          <Property Name="apellidoUno" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="apellidoDos" Type="varchar" MaxLength="45" />
+          <Property Name="telFijo" Type="varchar" MaxLength="45" />
+          <Property Name="telCelular" Type="varchar" MaxLength="45" />
+          <Property Name="email" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="tipoVinculacion" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="cargo" Type="varchar" MaxLength="45" />
+          <Property Name="fechaCulminacion" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="usuario" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="clave" Type="varchar" MaxLength="45" Nullable="false" />
+        </EntityType>
+        <Association Name="fk_actividad_actividad_mga1">
+          <End Role="actividad_mga" Type="Self.actividad_mga" Multiplicity="1" />
+          <End Role="actividad" Type="Self.actividad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="actividad_mga">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="actividad">
+              <PropertyRef Name="actividad_mga_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_actividad_detalle_actividad1">
+          <End Role="actividad" Type="Self.actividad" Multiplicity="1" />
+          <End Role="actividad_detalle" Type="Self.actividad_detalle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="actividad">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="actividad_detalle">
+              <PropertyRef Name="actividad_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_actividad_lis_detalle1">
+          <End Role="lis_detalle" Type="Self.lis_detalle" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="actividad_mga" Type="Self.actividad_mga" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lis_detalle">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="actividad_mga">
+              <PropertyRef Name="lis_detalle_id_etapa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_actividad_lis_detalle2">
+          <End Role="lis_detalle" Type="Self.lis_detalle" Multiplicity="1" />
+          <End Role="actividad" Type="Self.actividad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lis_detalle">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="actividad">
+              <PropertyRef Name="lis_detalle_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_actividad_producto1">
+          <End Role="producto" Type="Self.producto" Multiplicity="1" />
+          <End Role="actividad_mga" Type="Self.actividad_mga" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="producto">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="actividad_mga">
+              <PropertyRef Name="producto_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_acuerdoAprobacion_fuente_financiacion1">
+          <End Role="fuente_financiacion" Type="Self.fuente_financiacion" Multiplicity="1" />
+          <End Role="acuerdoAprobacion" Type="Self.acuerdoAprobacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fuente_financiacion">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="acuerdoAprobacion">
+              <PropertyRef Name="fuente_financiacion_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_acuerdoAprobacion_lis_detalle1">
+          <End Role="lis_detalle" Type="Self.lis_detalle" Multiplicity="1" />
+          <End Role="acuerdoAprobacion" Type="Self.acuerdoAprobacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lis_detalle">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="acuerdoAprobacion">
+              <PropertyRef Name="lis_detalle_id_ocad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_acuerdoAprobacion_proyecto2">
+          <End Role="proyecto" Type="Self.proyecto" Multiplicity="1" />
+          <End Role="acuerdoAprobacion" Type="Self.acuerdoAprobacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="proyecto">
+              <PropertyRef Name="bpin" />
+            </Principal>
+            <Dependent Role="acuerdoAprobacion">
+              <PropertyRef Name="proyecto_bpin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_alerta_proyecto1">
+          <End Role="proyecto" Type="Self.proyecto" Multiplicity="1" />
+          <End Role="alerta" Type="Self.alerta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="proyecto">
+              <PropertyRef Name="bpin" />
+            </Principal>
+            <Dependent Role="alerta">
+              <PropertyRef Name="proyecto_bpin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_auditoria_lis_detalle1">
+          <End Role="lis_detalle" Type="Self.lis_detalle" Multiplicity="1" />
+          <End Role="auditoria" Type="Self.auditoria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lis_detalle">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="auditoria">
+              <PropertyRef Name="lis_detalle_id_municipio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_auditoria_proyecto1">
+          <End Role="proyecto" Type="Self.proyecto" Multiplicity="1" />
+          <End Role="auditoria" Type="Self.auditoria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="proyecto">
+              <PropertyRef Name="bpin" />
+            </Principal>
+            <Dependent Role="auditoria">
+              <PropertyRef Name="proyecto_bpin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_contactoEntidadEjecutora_has_entidadEjecutora1_contactoEnt2">
+          <End Role="contactoEntidadEjecutora" Type="Self.contactoEntidadEjecutora" Multiplicity="1" />
+          <End Role="contactoEntidadEjecutora_has_entidadEjecutora" Type="Self.contactoEntidadEjecutora_has_entidadEjecutora" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="contactoEntidadEjecutora">
+              <PropertyRef Name="idContactoEntidad" />
+            </Principal>
+            <Dependent Role="contactoEntidadEjecutora_has_entidadEjecutora">
+              <PropertyRef Name="contactoEntidadEjecutora_idContactoEntidad1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_contactoEntidadEjecutora_has_entidadEjecutora1_entidadEjec2">
+          <End Role="entidadEjecutora" Type="Self.entidadEjecutora" Multiplicity="1" />
+          <End Role="contactoEntidadEjecutora_has_entidadEjecutora" Type="Self.contactoEntidadEjecutora_has_entidadEjecutora" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="entidadEjecutora">
+              <PropertyRef Name="idEntidadEjecutora" />
+            </Principal>
+            <Dependent Role="contactoEntidadEjecutora_has_entidadEjecutora">
+              <PropertyRef Name="entidadEjecutora_idEntidadEjecutora1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_cuenta_lis_detalle1">
+          <End Role="lis_detalle" Type="Self.lis_detalle" Multiplicity="1" />
+          <End Role="cuenta" Type="Self.cuenta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lis_detalle">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="cuenta">
+              <PropertyRef Name="lis_detalle_id_banco" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_cuenta_proyecto1">
+          <End Role="proyecto" Type="Self.proyecto" Multiplicity="1" />
+          <End Role="cuenta" Type="Self.cuenta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="proyecto">
+              <PropertyRef Name="bpin" />
+            </Principal>
+            <Dependent Role="cuenta">
+              <PropertyRef Name="proyecto_bpin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_cumplimiento_requisitos_lis_detalle1">
+          <End Role="lis_detalle" Type="Self.lis_detalle" Multiplicity="1" />
+          <End Role="cumplimiento_requisitos" Type="Self.cumplimiento_requisitos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lis_detalle">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="cumplimiento_requisitos">
+              <PropertyRef Name="lis_detalle_id_ocad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_fuente_financiacion_detalle_fuente_financiacion1">
+          <End Role="fuente_financiacion" Type="Self.fuente_financiacion" Multiplicity="1" />
+          <End Role="fuente_financiacion_detalle" Type="Self.fuente_financiacion_detalle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fuente_financiacion">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="fuente_financiacion_detalle">
+              <PropertyRef Name="fuente_financiacion_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_fuente_financiacion_has_proyecto_fuente_financiacion1">
+          <End Role="fuente_financiacion" Type="Self.fuente_financiacion" Multiplicity="1" />
+          <End Role="fuente_financiacion_has_proyecto" Type="Self.fuente_financiacion_has_proyecto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fuente_financiacion">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="fuente_financiacion_has_proyecto">
+              <PropertyRef Name="fuente_financiacion_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_fuente_financiacion_has_proyecto_proyecto2">
+          <End Role="proyecto" Type="Self.proyecto" Multiplicity="1" />
+          <End Role="fuente_financiacion_has_proyecto" Type="Self.fuente_financiacion_has_proyecto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="proyecto">
+              <PropertyRef Name="bpin" />
+            </Principal>
+            <Dependent Role="fuente_financiacion_has_proyecto">
+              <PropertyRef Name="proyecto_bpin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_fuente_financiacion_lis_detalle1">
+          <End Role="lis_detalle" Type="Self.lis_detalle" Multiplicity="1" />
+          <End Role="fuente_financiacion" Type="Self.fuente_financiacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lis_detalle">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="fuente_financiacion">
+              <PropertyRef Name="lis_detalle_id_etapa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_fuente_financiacion_lis_detalle2">
+          <End Role="lis_detalle" Type="Self.lis_detalle" Multiplicity="1" />
+          <End Role="fuente_financiacion" Type="Self.fuente_financiacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lis_detalle">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="fuente_financiacion">
+              <PropertyRef Name="lis_detalle_id_tipoenttidad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_fuente_financiacion_lis_detalle3">
+          <End Role="lis_detalle" Type="Self.lis_detalle" Multiplicity="1" />
+          <End Role="fuente_financiacion" Type="Self.fuente_financiacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lis_detalle">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="fuente_financiacion">
+              <PropertyRef Name="lis_detalle_id_tiporecurso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_fuente_financiacion_lis_detalle4">
+          <End Role="lis_detalle" Type="Self.lis_detalle" Multiplicity="1" />
+          <End Role="fuente_financiacion" Type="Self.fuente_financiacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lis_detalle">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="fuente_financiacion">
+              <PropertyRef Name="lis_detalle_id_identidad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_incorporacion_presupuestal_fuente_financiacion1">
+          <End Role="fuente_financiacion" Type="Self.fuente_financiacion" Multiplicity="1" />
+          <End Role="incorporacion_presupuestal" Type="Self.incorporacion_presupuestal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fuente_financiacion">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="incorporacion_presupuestal">
+              <PropertyRef Name="fuente_financiacion_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_incorporacion_presupuestal_lis_detalle1">
+          <End Role="lis_detalle" Type="Self.lis_detalle" Multiplicity="1" />
+          <End Role="incorporacion_presupuestal" Type="Self.incorporacion_presupuestal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lis_detalle">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="incorporacion_presupuestal">
+              <PropertyRef Name="lis_detalle_id_tipo_acto_adm" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_incorporacion_presupuestal_lis_detalle2">
+          <End Role="lis_detalle" Type="Self.lis_detalle" Multiplicity="1" />
+          <End Role="incorporacion_presupuestal" Type="Self.incorporacion_presupuestal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lis_detalle">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="incorporacion_presupuestal">
+              <PropertyRef Name="lis_detalle_id_tipo_vigencia_futura" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_incorporacion_presupuestal_proyecto1">
+          <End Role="proyecto" Type="Self.proyecto" Multiplicity="1" />
+          <End Role="incorporacion_presupuestal" Type="Self.incorporacion_presupuestal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="proyecto">
+              <PropertyRef Name="bpin" />
+            </Principal>
+            <Dependent Role="incorporacion_presupuestal">
+              <PropertyRef Name="proyecto_bpin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_incorporacion_presupuestal_rubro1">
+          <End Role="rubro" Type="Self.rubro" Multiplicity="1" />
+          <End Role="incorporacion_presupuestal" Type="Self.incorporacion_presupuestal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="rubro">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="incorporacion_presupuestal">
+              <PropertyRef Name="rubro_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_indicador_gestion_detalle_indicador_gestion1">
+          <End Role="indicador_gestion" Type="Self.indicador_gestion" Multiplicity="1" />
+          <End Role="indicador_gestion_detalle" Type="Self.indicador_gestion_detalle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="indicador_gestion">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="indicador_gestion_detalle">
+              <PropertyRef Name="indicador_gestion_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_indicador_gestion_lista_indicador1">
+          <End Role="lista_indicador" Type="Self.lista_indicador" Multiplicity="1" />
+          <End Role="indicador_gestion" Type="Self.indicador_gestion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lista_indicador">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="indicador_gestion">
+              <PropertyRef Name="lista_indicador_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_indicador_lis_detalle1">
+          <End Role="lis_detalle" Type="Self.lis_detalle" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="indicador" Type="Self.indicador" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lis_detalle">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="indicador">
+              <PropertyRef Name="lis_detalle_id_unidadmedida" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_indicador_producto_detalle_indicador_producto1">
+          <End Role="indicador_producto" Type="Self.indicador_producto" Multiplicity="1" />
+          <End Role="indicador_producto_detalle" Type="Self.indicador_producto_detalle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="indicador_producto">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="indicador_producto_detalle">
+              <PropertyRef Name="indicador_producto_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_indicador_producto_lista_indicador1">
+          <End Role="lista_indicador" Type="Self.lista_indicador" Multiplicity="1" />
+          <End Role="indicador_producto" Type="Self.indicador_producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lista_indicador">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="indicador_producto">
+              <PropertyRef Name="lista_indicador_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_indicador_producto_producto1">
+          <End Role="producto" Type="Self.producto" Multiplicity="1" />
+          <End Role="indicador_producto" Type="Self.indicador_producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="producto">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="indicador_producto">
+              <PropertyRef Name="producto_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_indicador_proyecto2">
+          <End Role="proyecto" Type="Self.proyecto" Multiplicity="1" />
+          <End Role="indicador" Type="Self.indicador" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="proyecto">
+              <PropertyRef Name="bpin" />
+            </Principal>
+            <Dependent Role="indicador">
+              <PropertyRef Name="proyecto_bpin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_insumo_actividad1">
+          <End Role="actividad_mga" Type="Self.actividad_mga" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="insumo" Type="Self.insumo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="actividad_mga">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="insumo">
+              <PropertyRef Name="actividad_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_insumo_lis_detalle1">
+          <End Role="lis_detalle" Type="Self.lis_detalle" Multiplicity="1" />
+          <End Role="insumo" Type="Self.insumo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lis_detalle">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="insumo">
+              <PropertyRef Name="lis_detalle_id_tipo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_lis_detalle_lis_nombre">
+          <End Role="lis_nombre" Type="Self.lis_nombre" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="lis_detalle" Type="Self.lis_detalle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lis_nombre">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="lis_detalle">
+              <PropertyRef Name="lis_nombre_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_lista_indicador_lis_detalle1">
+          <End Role="lis_detalle" Type="Self.lis_detalle" Multiplicity="1" />
+          <End Role="lista_indicador" Type="Self.lista_indicador" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lis_detalle">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="lista_indicador">
+              <PropertyRef Name="lis_detalle_id_tipoindicador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_lista_indicador_lis_detalle2">
+          <End Role="lis_detalle" Type="Self.lis_detalle" Multiplicity="1" />
+          <End Role="lista_indicador" Type="Self.lista_indicador" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lis_detalle">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="lista_indicador">
+              <PropertyRef Name="lis_detalle_id_sector" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_objetivo_especifico_proyecto1">
+          <End Role="proyecto" Type="Self.proyecto" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="objetivo_especifico" Type="Self.objetivo_especifico" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="proyecto">
+              <PropertyRef Name="bpin" />
+            </Principal>
+            <Dependent Role="objetivo_especifico">
+              <PropertyRef Name="proyecto_bpin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_producto_lis_detalle1">
+          <End Role="lis_detalle" Type="Self.lis_detalle" Multiplicity="1" />
+          <End Role="producto" Type="Self.producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lis_detalle">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="producto">
+              <PropertyRef Name="lis_detalle_id_unidadmedida" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_producto_objetivo_especifico1">
+          <End Role="objetivo_especifico" Type="Self.objetivo_especifico" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="producto" Type="Self.producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="objetivo_especifico">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="producto">
+              <PropertyRef Name="objetivo_especifico_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_proyecto_entidadEjecutora1">
+          <End Role="entidadEjecutora" Type="Self.entidadEjecutora" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="proyecto" Type="Self.proyecto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="entidadEjecutora">
+              <PropertyRef Name="idEntidadEjecutora" />
+            </Principal>
+            <Dependent Role="proyecto">
+              <PropertyRef Name="entidadEjecutora_idEntidadEjecutora" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_proyecto_has_usuario_proyecto2">
+          <End Role="proyecto" Type="Self.proyecto" Multiplicity="1" />
+          <End Role="proyecto_has_usuario_has_rol" Type="Self.proyecto_has_usuario_has_rol" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="proyecto">
+              <PropertyRef Name="bpin" />
+            </Principal>
+            <Dependent Role="proyecto_has_usuario_has_rol">
+              <PropertyRef Name="proyecto_bpin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_proyecto_has_usuario_rol1">
+          <End Role="rol" Type="Self.rol" Multiplicity="1" />
+          <End Role="proyecto_has_usuario_has_rol" Type="Self.proyecto_has_usuario_has_rol" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="rol">
+              <PropertyRef Name="idRol" />
+            </Principal>
+            <Dependent Role="proyecto_has_usuario_has_rol">
+              <PropertyRef Name="rol_idRol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_proyecto_has_usuario_usuario1">
+          <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
+          <End Role="proyecto_has_usuario_has_rol" Type="Self.proyecto_has_usuario_has_rol" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario">
+              <PropertyRef Name="idUsuario" />
+            </Principal>
+            <Dependent Role="proyecto_has_usuario_has_rol">
+              <PropertyRef Name="usuario_idUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_proyecto_lis_detalle1">
+          <End Role="lis_detalle" Type="Self.lis_detalle" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="proyecto" Type="Self.proyecto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lis_detalle">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="proyecto">
+              <PropertyRef Name="lis_detalle_id_sector" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_proyecto_lis_detalle2">
+          <End Role="lis_detalle" Type="Self.lis_detalle" Multiplicity="1" />
+          <End Role="proyecto" Type="Self.proyecto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lis_detalle">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="proyecto">
+              <PropertyRef Name="lis_detalle_id_localizacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_reintegro_cuenta1">
+          <End Role="cuenta" Type="Self.cuenta" Multiplicity="1" />
+          <End Role="reintegro" Type="Self.reintegro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cuenta">
+              <PropertyRef Name="numero" />
+            </Principal>
+            <Dependent Role="reintegro">
+              <PropertyRef Name="cuenta_numero" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="bd_gesproyModelStoreContainer">
+          <EntitySet Name="actividad" EntityType="Self.actividad" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="actividad_detalle" EntityType="Self.actividad_detalle" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="actividad_mga" EntityType="Self.actividad_mga" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="acuerdoAprobacion" EntityType="Self.acuerdoAprobacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="alerta" EntityType="Self.alerta" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="auditoria" EntityType="Self.auditoria" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="contactoEntidadEjecutora" EntityType="Self.contactoEntidadEjecutora" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="contactoEntidadEjecutora_has_entidadEjecutora" EntityType="Self.contactoEntidadEjecutora_has_entidadEjecutora" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="cuenta" EntityType="Self.cuenta" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="cumplimiento_requisitos" EntityType="Self.cumplimiento_requisitos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="entidadEjecutora" EntityType="Self.entidadEjecutora" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="fuente_financiacion" EntityType="Self.fuente_financiacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="fuente_financiacion_detalle" EntityType="Self.fuente_financiacion_detalle" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="fuente_financiacion_has_proyecto" EntityType="Self.fuente_financiacion_has_proyecto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="incorporacion_presupuestal" EntityType="Self.incorporacion_presupuestal" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="indicador" EntityType="Self.indicador" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="indicador_gestion" EntityType="Self.indicador_gestion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="indicador_gestion_detalle" EntityType="Self.indicador_gestion_detalle" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="indicador_producto" EntityType="Self.indicador_producto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="indicador_producto_detalle" EntityType="Self.indicador_producto_detalle" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="insumo" EntityType="Self.insumo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="lis_detalle" EntityType="Self.lis_detalle" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="lis_nombre" EntityType="Self.lis_nombre" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="lista_indicador" EntityType="Self.lista_indicador" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="objetivo_especifico" EntityType="Self.objetivo_especifico" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="producto" EntityType="Self.producto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="proyecto" EntityType="Self.proyecto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="proyecto_has_usuario_has_rol" EntityType="Self.proyecto_has_usuario_has_rol" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="reintegro" EntityType="Self.reintegro" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="rol" EntityType="Self.rol" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="rubro" EntityType="Self.rubro" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="usuario" EntityType="Self.usuario" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="fk_actividad_actividad_mga1" Association="Self.fk_actividad_actividad_mga1">
+            <End Role="actividad_mga" EntitySet="actividad_mga" />
+            <End Role="actividad" EntitySet="actividad" />
+          </AssociationSet>
+          <AssociationSet Name="fk_actividad_detalle_actividad1" Association="Self.fk_actividad_detalle_actividad1">
+            <End Role="actividad" EntitySet="actividad" />
+            <End Role="actividad_detalle" EntitySet="actividad_detalle" />
+          </AssociationSet>
+          <AssociationSet Name="fk_actividad_lis_detalle1" Association="Self.fk_actividad_lis_detalle1">
+            <End Role="lis_detalle" EntitySet="lis_detalle" />
+            <End Role="actividad_mga" EntitySet="actividad_mga" />
+          </AssociationSet>
+          <AssociationSet Name="fk_actividad_lis_detalle2" Association="Self.fk_actividad_lis_detalle2">
+            <End Role="lis_detalle" EntitySet="lis_detalle" />
+            <End Role="actividad" EntitySet="actividad" />
+          </AssociationSet>
+          <AssociationSet Name="fk_actividad_producto1" Association="Self.fk_actividad_producto1">
+            <End Role="producto" EntitySet="producto" />
+            <End Role="actividad_mga" EntitySet="actividad_mga" />
+          </AssociationSet>
+          <AssociationSet Name="fk_acuerdoAprobacion_fuente_financiacion1" Association="Self.fk_acuerdoAprobacion_fuente_financiacion1">
+            <End Role="fuente_financiacion" EntitySet="fuente_financiacion" />
+            <End Role="acuerdoAprobacion" EntitySet="acuerdoAprobacion" />
+          </AssociationSet>
+          <AssociationSet Name="fk_acuerdoAprobacion_lis_detalle1" Association="Self.fk_acuerdoAprobacion_lis_detalle1">
+            <End Role="lis_detalle" EntitySet="lis_detalle" />
+            <End Role="acuerdoAprobacion" EntitySet="acuerdoAprobacion" />
+          </AssociationSet>
+          <AssociationSet Name="fk_acuerdoAprobacion_proyecto2" Association="Self.fk_acuerdoAprobacion_proyecto2">
+            <End Role="proyecto" EntitySet="proyecto" />
+            <End Role="acuerdoAprobacion" EntitySet="acuerdoAprobacion" />
+          </AssociationSet>
+          <AssociationSet Name="fk_alerta_proyecto1" Association="Self.fk_alerta_proyecto1">
+            <End Role="proyecto" EntitySet="proyecto" />
+            <End Role="alerta" EntitySet="alerta" />
+          </AssociationSet>
+          <AssociationSet Name="fk_auditoria_lis_detalle1" Association="Self.fk_auditoria_lis_detalle1">
+            <End Role="lis_detalle" EntitySet="lis_detalle" />
+            <End Role="auditoria" EntitySet="auditoria" />
+          </AssociationSet>
+          <AssociationSet Name="fk_auditoria_proyecto1" Association="Self.fk_auditoria_proyecto1">
+            <End Role="proyecto" EntitySet="proyecto" />
+            <End Role="auditoria" EntitySet="auditoria" />
+          </AssociationSet>
+          <AssociationSet Name="fk_contactoEntidadEjecutora_has_entidadEjecutora1_contactoEnt2" Association="Self.fk_contactoEntidadEjecutora_has_entidadEjecutora1_contactoEnt2">
+            <End Role="contactoEntidadEjecutora" EntitySet="contactoEntidadEjecutora" />
+            <End Role="contactoEntidadEjecutora_has_entidadEjecutora" EntitySet="contactoEntidadEjecutora_has_entidadEjecutora" />
+          </AssociationSet>
+          <AssociationSet Name="fk_contactoEntidadEjecutora_has_entidadEjecutora1_entidadEjec2" Association="Self.fk_contactoEntidadEjecutora_has_entidadEjecutora1_entidadEjec2">
+            <End Role="entidadEjecutora" EntitySet="entidadEjecutora" />
+            <End Role="contactoEntidadEjecutora_has_entidadEjecutora" EntitySet="contactoEntidadEjecutora_has_entidadEjecutora" />
+          </AssociationSet>
+          <AssociationSet Name="fk_cuenta_lis_detalle1" Association="Self.fk_cuenta_lis_detalle1">
+            <End Role="lis_detalle" EntitySet="lis_detalle" />
+            <End Role="cuenta" EntitySet="cuenta" />
+          </AssociationSet>
+          <AssociationSet Name="fk_cuenta_proyecto1" Association="Self.fk_cuenta_proyecto1">
+            <End Role="proyecto" EntitySet="proyecto" />
+            <End Role="cuenta" EntitySet="cuenta" />
+          </AssociationSet>
+          <AssociationSet Name="fk_cumplimiento_requisitos_lis_detalle1" Association="Self.fk_cumplimiento_requisitos_lis_detalle1">
+            <End Role="lis_detalle" EntitySet="lis_detalle" />
+            <End Role="cumplimiento_requisitos" EntitySet="cumplimiento_requisitos" />
+          </AssociationSet>
+          <AssociationSet Name="fk_fuente_financiacion_detalle_fuente_financiacion1" Association="Self.fk_fuente_financiacion_detalle_fuente_financiacion1">
+            <End Role="fuente_financiacion" EntitySet="fuente_financiacion" />
+            <End Role="fuente_financiacion_detalle" EntitySet="fuente_financiacion_detalle" />
+          </AssociationSet>
+          <AssociationSet Name="fk_fuente_financiacion_has_proyecto_fuente_financiacion1" Association="Self.fk_fuente_financiacion_has_proyecto_fuente_financiacion1">
+            <End Role="fuente_financiacion" EntitySet="fuente_financiacion" />
+            <End Role="fuente_financiacion_has_proyecto" EntitySet="fuente_financiacion_has_proyecto" />
+          </AssociationSet>
+          <AssociationSet Name="fk_fuente_financiacion_has_proyecto_proyecto2" Association="Self.fk_fuente_financiacion_has_proyecto_proyecto2">
+            <End Role="proyecto" EntitySet="proyecto" />
+            <End Role="fuente_financiacion_has_proyecto" EntitySet="fuente_financiacion_has_proyecto" />
+          </AssociationSet>
+          <AssociationSet Name="fk_fuente_financiacion_lis_detalle1" Association="Self.fk_fuente_financiacion_lis_detalle1">
+            <End Role="lis_detalle" EntitySet="lis_detalle" />
+            <End Role="fuente_financiacion" EntitySet="fuente_financiacion" />
+          </AssociationSet>
+          <AssociationSet Name="fk_fuente_financiacion_lis_detalle2" Association="Self.fk_fuente_financiacion_lis_detalle2">
+            <End Role="lis_detalle" EntitySet="lis_detalle" />
+            <End Role="fuente_financiacion" EntitySet="fuente_financiacion" />
+          </AssociationSet>
+          <AssociationSet Name="fk_fuente_financiacion_lis_detalle3" Association="Self.fk_fuente_financiacion_lis_detalle3">
+            <End Role="lis_detalle" EntitySet="lis_detalle" />
+            <End Role="fuente_financiacion" EntitySet="fuente_financiacion" />
+          </AssociationSet>
+          <AssociationSet Name="fk_fuente_financiacion_lis_detalle4" Association="Self.fk_fuente_financiacion_lis_detalle4">
+            <End Role="lis_detalle" EntitySet="lis_detalle" />
+            <End Role="fuente_financiacion" EntitySet="fuente_financiacion" />
+          </AssociationSet>
+          <AssociationSet Name="fk_incorporacion_presupuestal_fuente_financiacion1" Association="Self.fk_incorporacion_presupuestal_fuente_financiacion1">
+            <End Role="fuente_financiacion" EntitySet="fuente_financiacion" />
+            <End Role="incorporacion_presupuestal" EntitySet="incorporacion_presupuestal" />
+          </AssociationSet>
+          <AssociationSet Name="fk_incorporacion_presupuestal_lis_detalle1" Association="Self.fk_incorporacion_presupuestal_lis_detalle1">
+            <End Role="lis_detalle" EntitySet="lis_detalle" />
+            <End Role="incorporacion_presupuestal" EntitySet="incorporacion_presupuestal" />
+          </AssociationSet>
+          <AssociationSet Name="fk_incorporacion_presupuestal_lis_detalle2" Association="Self.fk_incorporacion_presupuestal_lis_detalle2">
+            <End Role="lis_detalle" EntitySet="lis_detalle" />
+            <End Role="incorporacion_presupuestal" EntitySet="incorporacion_presupuestal" />
+          </AssociationSet>
+          <AssociationSet Name="fk_incorporacion_presupuestal_proyecto1" Association="Self.fk_incorporacion_presupuestal_proyecto1">
+            <End Role="proyecto" EntitySet="proyecto" />
+            <End Role="incorporacion_presupuestal" EntitySet="incorporacion_presupuestal" />
+          </AssociationSet>
+          <AssociationSet Name="fk_incorporacion_presupuestal_rubro1" Association="Self.fk_incorporacion_presupuestal_rubro1">
+            <End Role="rubro" EntitySet="rubro" />
+            <End Role="incorporacion_presupuestal" EntitySet="incorporacion_presupuestal" />
+          </AssociationSet>
+          <AssociationSet Name="fk_indicador_gestion_detalle_indicador_gestion1" Association="Self.fk_indicador_gestion_detalle_indicador_gestion1">
+            <End Role="indicador_gestion" EntitySet="indicador_gestion" />
+            <End Role="indicador_gestion_detalle" EntitySet="indicador_gestion_detalle" />
+          </AssociationSet>
+          <AssociationSet Name="fk_indicador_gestion_lista_indicador1" Association="Self.fk_indicador_gestion_lista_indicador1">
+            <End Role="lista_indicador" EntitySet="lista_indicador" />
+            <End Role="indicador_gestion" EntitySet="indicador_gestion" />
+          </AssociationSet>
+          <AssociationSet Name="fk_indicador_lis_detalle1" Association="Self.fk_indicador_lis_detalle1">
+            <End Role="lis_detalle" EntitySet="lis_detalle" />
+            <End Role="indicador" EntitySet="indicador" />
+          </AssociationSet>
+          <AssociationSet Name="fk_indicador_producto_detalle_indicador_producto1" Association="Self.fk_indicador_producto_detalle_indicador_producto1">
+            <End Role="indicador_producto" EntitySet="indicador_producto" />
+            <End Role="indicador_producto_detalle" EntitySet="indicador_producto_detalle" />
+          </AssociationSet>
+          <AssociationSet Name="fk_indicador_producto_lista_indicador1" Association="Self.fk_indicador_producto_lista_indicador1">
+            <End Role="lista_indicador" EntitySet="lista_indicador" />
+            <End Role="indicador_producto" EntitySet="indicador_producto" />
+          </AssociationSet>
+          <AssociationSet Name="fk_indicador_producto_producto1" Association="Self.fk_indicador_producto_producto1">
+            <End Role="producto" EntitySet="producto" />
+            <End Role="indicador_producto" EntitySet="indicador_producto" />
+          </AssociationSet>
+          <AssociationSet Name="fk_indicador_proyecto2" Association="Self.fk_indicador_proyecto2">
+            <End Role="proyecto" EntitySet="proyecto" />
+            <End Role="indicador" EntitySet="indicador" />
+          </AssociationSet>
+          <AssociationSet Name="fk_insumo_actividad1" Association="Self.fk_insumo_actividad1">
+            <End Role="actividad_mga" EntitySet="actividad_mga" />
+            <End Role="insumo" EntitySet="insumo" />
+          </AssociationSet>
+          <AssociationSet Name="fk_insumo_lis_detalle1" Association="Self.fk_insumo_lis_detalle1">
+            <End Role="lis_detalle" EntitySet="lis_detalle" />
+            <End Role="insumo" EntitySet="insumo" />
+          </AssociationSet>
+          <AssociationSet Name="fk_lis_detalle_lis_nombre" Association="Self.fk_lis_detalle_lis_nombre">
+            <End Role="lis_nombre" EntitySet="lis_nombre" />
+            <End Role="lis_detalle" EntitySet="lis_detalle" />
+          </AssociationSet>
+          <AssociationSet Name="fk_lista_indicador_lis_detalle1" Association="Self.fk_lista_indicador_lis_detalle1">
+            <End Role="lis_detalle" EntitySet="lis_detalle" />
+            <End Role="lista_indicador" EntitySet="lista_indicador" />
+          </AssociationSet>
+          <AssociationSet Name="fk_lista_indicador_lis_detalle2" Association="Self.fk_lista_indicador_lis_detalle2">
+            <End Role="lis_detalle" EntitySet="lis_detalle" />
+            <End Role="lista_indicador" EntitySet="lista_indicador" />
+          </AssociationSet>
+          <AssociationSet Name="fk_objetivo_especifico_proyecto1" Association="Self.fk_objetivo_especifico_proyecto1">
+            <End Role="proyecto" EntitySet="proyecto" />
+            <End Role="objetivo_especifico" EntitySet="objetivo_especifico" />
+          </AssociationSet>
+          <AssociationSet Name="fk_producto_lis_detalle1" Association="Self.fk_producto_lis_detalle1">
+            <End Role="lis_detalle" EntitySet="lis_detalle" />
+            <End Role="producto" EntitySet="producto" />
+          </AssociationSet>
+          <AssociationSet Name="fk_producto_objetivo_especifico1" Association="Self.fk_producto_objetivo_especifico1">
+            <End Role="objetivo_especifico" EntitySet="objetivo_especifico" />
+            <End Role="producto" EntitySet="producto" />
+          </AssociationSet>
+          <AssociationSet Name="fk_proyecto_entidadEjecutora1" Association="Self.fk_proyecto_entidadEjecutora1">
+            <End Role="entidadEjecutora" EntitySet="entidadEjecutora" />
+            <End Role="proyecto" EntitySet="proyecto" />
+          </AssociationSet>
+          <AssociationSet Name="fk_proyecto_has_usuario_proyecto2" Association="Self.fk_proyecto_has_usuario_proyecto2">
+            <End Role="proyecto" EntitySet="proyecto" />
+            <End Role="proyecto_has_usuario_has_rol" EntitySet="proyecto_has_usuario_has_rol" />
+          </AssociationSet>
+          <AssociationSet Name="fk_proyecto_has_usuario_rol1" Association="Self.fk_proyecto_has_usuario_rol1">
+            <End Role="rol" EntitySet="rol" />
+            <End Role="proyecto_has_usuario_has_rol" EntitySet="proyecto_has_usuario_has_rol" />
+          </AssociationSet>
+          <AssociationSet Name="fk_proyecto_has_usuario_usuario1" Association="Self.fk_proyecto_has_usuario_usuario1">
+            <End Role="usuario" EntitySet="usuario" />
+            <End Role="proyecto_has_usuario_has_rol" EntitySet="proyecto_has_usuario_has_rol" />
+          </AssociationSet>
+          <AssociationSet Name="fk_proyecto_lis_detalle1" Association="Self.fk_proyecto_lis_detalle1">
+            <End Role="lis_detalle" EntitySet="lis_detalle" />
+            <End Role="proyecto" EntitySet="proyecto" />
+          </AssociationSet>
+          <AssociationSet Name="fk_proyecto_lis_detalle2" Association="Self.fk_proyecto_lis_detalle2">
+            <End Role="lis_detalle" EntitySet="lis_detalle" />
+            <End Role="proyecto" EntitySet="proyecto" />
+          </AssociationSet>
+          <AssociationSet Name="fk_reintegro_cuenta1" Association="Self.fk_reintegro_cuenta1">
+            <End Role="cuenta" EntitySet="cuenta" />
+            <End Role="reintegro" EntitySet="reintegro" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="bd_gesproyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="actividad">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fecha_inicio" Type="DateTime" Precision="0" />
+          <Property Name="fecha_fin" Type="DateTime" Precision="0" />
+          <Property Name="cantidad_total" Type="Double" />
+          <Property Name="valor_total" Type="Double" />
+          <Property Name="por_ponderacion" Type="Double" />
+          <Property Name="actividad_mga_id" Type="Int32" Nullable="false" />
+          <Property Name="lis_detalle_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="actividad_mga" Relationship="Self.fk_actividad_actividad_mga1" FromRole="actividad" ToRole="actividad_mga" />
+          <NavigationProperty Name="actividad_detalle" Relationship="Self.fk_actividad_detalle_actividad1" FromRole="actividad" ToRole="actividad_detalle" />
+          <NavigationProperty Name="lis_detalle" Relationship="Self.fk_actividad_lis_detalle2" FromRole="actividad" ToRole="lis_detalle" />
+        </EntityType>
+        <EntityType Name="actividad_detalle">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="fecha" Type="DateTime" Precision="0" />
+          <Property Name="cantidad_avance" Type="Double" />
+          <Property Name="actividad_id" Type="Int32" Nullable="false" />
+          <Property Name="porc_ejecutado" Type="Double" />
+          <NavigationProperty Name="actividad" Relationship="Self.fk_actividad_detalle_actividad1" FromRole="actividad_detalle" ToRole="actividad" />
+        </EntityType>
+        <EntityType Name="actividad_mga">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="descripcion" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="lis_detalle_id_etapa" Type="Int32" Nullable="false" />
+          <Property Name="producto_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="actividad" Relationship="Self.fk_actividad_actividad_mga1" FromRole="actividad_mga" ToRole="actividad" />
+          <NavigationProperty Name="lis_detalle" Relationship="Self.fk_actividad_lis_detalle1" FromRole="actividad_mga" ToRole="lis_detalle" />
+          <NavigationProperty Name="producto" Relationship="Self.fk_actividad_producto1" FromRole="actividad_mga" ToRole="producto" />
+          <NavigationProperty Name="insumo" Relationship="Self.fk_insumo_actividad1" FromRole="actividad_mga" ToRole="insumo" />
+        </EntityType>
+        <EntityType Name="acuerdoAprobacion">
+          <Key>
+            <PropertyRef Name="idAcuerdoAprobacion" />
+          </Key>
+          <Property Name="idAcuerdoAprobacion" Type="Int32" Nullable="false" />
+          <Property Name="numeroAcuerdo" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="fechaAcuerdo" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="valorAcuerdo" Type="Int32" />
+          <Property Name="vigencia" Type="Int32" />
+          <Property Name="fuente_financiacion_id" Type="Int32" Nullable="false" />
+          <Property Name="proyecto_bpin" Type="Int32" Nullable="false" />
+          <Property Name="lis_detalle_id_ocad" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="fuente_financiacion" Relationship="Self.fk_acuerdoAprobacion_fuente_financiacion1" FromRole="acuerdoAprobacion" ToRole="fuente_financiacion" />
+          <NavigationProperty Name="lis_detalle" Relationship="Self.fk_acuerdoAprobacion_lis_detalle1" FromRole="acuerdoAprobacion" ToRole="lis_detalle" />
+          <NavigationProperty Name="proyecto" Relationship="Self.fk_acuerdoAprobacion_proyecto2" FromRole="acuerdoAprobacion" ToRole="proyecto" />
+        </EntityType>
+        <EntityType Name="alerta">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="descripcion" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="proyecto_bpin" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="proyecto" Relationship="Self.fk_alerta_proyecto1" FromRole="alerta" ToRole="proyecto" />
+        </EntityType>
+        <EntityType Name="auditoria">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="tipo_foro" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="nombre_foro" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="fecha" Type="DateTime" Precision="0" />
+          <Property Name="grupo_encargado" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="asistentes" Type="Int32" />
+          <Property Name="acompanamiento" Type="Boolean" />
+          <Property Name="grupo_acompanamiento" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="proyecto_bpin" Type="Int32" Nullable="false" />
+          <Property Name="lis_detalle_id_municipio" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="lis_detalle" Relationship="Self.fk_auditoria_lis_detalle1" FromRole="auditoria" ToRole="lis_detalle" />
+          <NavigationProperty Name="proyecto" Relationship="Self.fk_auditoria_proyecto1" FromRole="auditoria" ToRole="proyecto" />
+        </EntityType>
+        <EntityType Name="contactoEntidadEjecutora">
+          <Key>
+            <PropertyRef Name="idContactoEntidad" />
+          </Key>
+          <Property Name="idContactoEntidad" Type="Int32" Nullable="false" />
+          <Property Name="tipoId" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="identificacion" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="apellido" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="telFijo" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="estado" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="telCelular" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="tipoContacto" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="representanteLegal" Type="Boolean" />
+          <NavigationProperty Name="contactoEntidadEjecutora_has_entidadEjecutora" Relationship="Self.fk_contactoEntidadEjecutora_has_entidadEjecutora1_contactoEnt2" FromRole="contactoEntidadEjecutora" ToRole="contactoEntidadEjecutora_has_entidadEjecutora" />
+        </EntityType>
+        <EntityType Name="contactoEntidadEjecutora_has_entidadEjecutora">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="entidadEjecutora_idEntidadEjecutora1" Type="Int32" Nullable="false" />
+          <Property Name="contactoEntidadEjecutora_idContactoEntidad1" Type="Int32" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="contactoEntidadEjecutora" Relationship="Self.fk_contactoEntidadEjecutora_has_entidadEjecutora1_contactoEnt2" FromRole="contactoEntidadEjecutora_has_entidadEjecutora" ToRole="contactoEntidadEjecutora" />
+          <NavigationProperty Name="entidadEjecutora" Relationship="Self.fk_contactoEntidadEjecutora_has_entidadEjecutora1_entidadEjec2" FromRole="contactoEntidadEjecutora_has_entidadEjecutora" ToRole="entidadEjecutora" />
+        </EntityType>
+        <EntityType Name="cuenta">
+          <Key>
+            <PropertyRef Name="numero" />
+          </Key>
+          <Property Name="numero" Type="Int32" Nullable="false" />
+          <Property Name="tipo" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="nombre" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="estado" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="proyecto_bpin" Type="Int32" Nullable="false" />
+          <Property Name="lis_detalle_id_banco" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="lis_detalle" Relationship="Self.fk_cuenta_lis_detalle1" FromRole="cuenta" ToRole="lis_detalle" />
+          <NavigationProperty Name="proyecto" Relationship="Self.fk_cuenta_proyecto1" FromRole="cuenta" ToRole="proyecto" />
+          <NavigationProperty Name="reintegro" Relationship="Self.fk_reintegro_cuenta1" FromRole="cuenta" ToRole="reintegro" />
+        </EntityType>
+        <EntityType Name="cumplimiento_requisitos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="fecha" Type="DateTime" Precision="0" />
+          <Property Name="numero_doc" Type="Int32" />
+          <Property Name="cumplimiento" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="lis_detalle_id_ocad" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="lis_detalle" Relationship="Self.fk_cumplimiento_requisitos_lis_detalle1" FromRole="cumplimiento_requisitos" ToRole="lis_detalle" />
+        </EntityType>
+        <EntityType Name="entidadEjecutora">
+          <Key>
+            <PropertyRef Name="idEntidadEjecutora" />
+          </Key>
+          <Property Name="idEntidadEjecutora" Type="Int32" Nullable="false" />
+          <Property Name="nit" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+          <Property Name="nombre" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="contactoEntidadEjecutora_has_entidadEjecutora" Relationship="Self.fk_contactoEntidadEjecutora_has_entidadEjecutora1_entidadEjec2" FromRole="entidadEjecutora" ToRole="contactoEntidadEjecutora_has_entidadEjecutora" />
+          <NavigationProperty Name="proyecto" Relationship="Self.fk_proyecto_entidadEjecutora1" FromRole="entidadEjecutora" ToRole="proyecto" />
+        </EntityType>
+        <EntityType Name="fuente_financiacion">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="fuente_financiacioncol" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="lis_detalle_id_etapa" Type="Int32" Nullable="false" />
+          <Property Name="lis_detalle_id_tipoenttidad" Type="Int32" Nullable="false" />
+          <Property Name="lis_detalle_id_tiporecurso" Type="Int32" Nullable="false" />
+          <Property Name="lis_detalle_id_identidad" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="acuerdoAprobacion" Relationship="Self.fk_acuerdoAprobacion_fuente_financiacion1" FromRole="fuente_financiacion" ToRole="acuerdoAprobacion" />
+          <NavigationProperty Name="fuente_financiacion_detalle" Relationship="Self.fk_fuente_financiacion_detalle_fuente_financiacion1" FromRole="fuente_financiacion" ToRole="fuente_financiacion_detalle" />
+          <NavigationProperty Name="fuente_financiacion_has_proyecto" Relationship="Self.fk_fuente_financiacion_has_proyecto_fuente_financiacion1" FromRole="fuente_financiacion" ToRole="fuente_financiacion_has_proyecto" />
+          <NavigationProperty Name="lis_detalle" Relationship="Self.fk_fuente_financiacion_lis_detalle1" FromRole="fuente_financiacion" ToRole="lis_detalle" />
+          <NavigationProperty Name="lis_detalle1" Relationship="Self.fk_fuente_financiacion_lis_detalle2" FromRole="fuente_financiacion" ToRole="lis_detalle" />
+          <NavigationProperty Name="lis_detalle2" Relationship="Self.fk_fuente_financiacion_lis_detalle3" FromRole="fuente_financiacion" ToRole="lis_detalle" />
+          <NavigationProperty Name="lis_detalle3" Relationship="Self.fk_fuente_financiacion_lis_detalle4" FromRole="fuente_financiacion" ToRole="lis_detalle" />
+          <NavigationProperty Name="incorporacion_presupuestal" Relationship="Self.fk_incorporacion_presupuestal_fuente_financiacion1" FromRole="fuente_financiacion" ToRole="incorporacion_presupuestal" />
+        </EntityType>
+        <EntityType Name="fuente_financiacion_detalle">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="vigencia" Type="Int32" />
+          <Property Name="valor" Type="Double" />
+          <Property Name="fuente_financiacion_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="fuente_financiacion" Relationship="Self.fk_fuente_financiacion_detalle_fuente_financiacion1" FromRole="fuente_financiacion_detalle" ToRole="fuente_financiacion" />
+        </EntityType>
+        <EntityType Name="fuente_financiacion_has_proyecto">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="fuente_financiacion_id" Type="Int32" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="proyecto_bpin" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="fuente_financiacion" Relationship="Self.fk_fuente_financiacion_has_proyecto_fuente_financiacion1" FromRole="fuente_financiacion_has_proyecto" ToRole="fuente_financiacion" />
+          <NavigationProperty Name="proyecto" Relationship="Self.fk_fuente_financiacion_has_proyecto_proyecto2" FromRole="fuente_financiacion_has_proyecto" ToRole="proyecto" />
+        </EntityType>
+        <EntityType Name="incorporacion_presupuestal">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="numero_acto_administrativo" Type="Int32" />
+          <Property Name="fecha" Type="DateTime" Precision="0" />
+          <Property Name="vigencia" Type="Int32" />
+          <Property Name="valor" Type="Double" />
+          <Property Name="aplica_vigencia_futura" Type="Boolean" />
+          <Property Name="numero_autorizacion_futura" Type="Int32" />
+          <Property Name="proyecto_bpin" Type="Int32" Nullable="false" />
+          <Property Name="lis_detalle_id_tipo_acto_adm" Type="Int32" Nullable="false" />
+          <Property Name="lis_detalle_id_tipo_vigencia_futura" Type="Int32" Nullable="false" />
+          <Property Name="rubro_id" Type="Int32" Nullable="false" />
+          <Property Name="fuente_financiacion_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="fuente_financiacion" Relationship="Self.fk_incorporacion_presupuestal_fuente_financiacion1" FromRole="incorporacion_presupuestal" ToRole="fuente_financiacion" />
+          <NavigationProperty Name="lis_detalle" Relationship="Self.fk_incorporacion_presupuestal_lis_detalle1" FromRole="incorporacion_presupuestal" ToRole="lis_detalle" />
+          <NavigationProperty Name="lis_detalle1" Relationship="Self.fk_incorporacion_presupuestal_lis_detalle2" FromRole="incorporacion_presupuestal" ToRole="lis_detalle" />
+          <NavigationProperty Name="proyecto" Relationship="Self.fk_incorporacion_presupuestal_proyecto1" FromRole="incorporacion_presupuestal" ToRole="proyecto" />
+          <NavigationProperty Name="rubro" Relationship="Self.fk_incorporacion_presupuestal_rubro1" FromRole="incorporacion_presupuestal" ToRole="rubro" />
+        </EntityType>
+        <EntityType Name="indicador">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="meta" Type="Double" />
+          <Property Name="lis_detalle_id_unidadmedida" Type="Int32" Nullable="false" />
+          <Property Name="proyecto_bpin" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="lis_detalle" Relationship="Self.fk_indicador_lis_detalle1" FromRole="indicador" ToRole="lis_detalle" />
+          <NavigationProperty Name="proyecto" Relationship="Self.fk_indicador_proyecto2" FromRole="indicador" ToRole="proyecto" />
+        </EntityType>
+        <EntityType Name="indicador_gestion">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="lista_indicador_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="indicador_gestion_detalle" Relationship="Self.fk_indicador_gestion_detalle_indicador_gestion1" FromRole="indicador_gestion" ToRole="indicador_gestion_detalle" />
+          <NavigationProperty Name="lista_indicador" Relationship="Self.fk_indicador_gestion_lista_indicador1" FromRole="indicador_gestion" ToRole="lista_indicador" />
+        </EntityType>
+        <EntityType Name="indicador_gestion_detalle">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="indicador_gestion_id" Type="Int32" Nullable="false" />
+          <Property Name="vigencia" Type="Int32" />
+          <Property Name="valor" Type="Double" />
+          <NavigationProperty Name="indicador_gestion" Relationship="Self.fk_indicador_gestion_detalle_indicador_gestion1" FromRole="indicador_gestion_detalle" ToRole="indicador_gestion" />
+        </EntityType>
+        <EntityType Name="indicador_producto">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="lista_indicador_id" Type="Int32" Nullable="false" />
+          <Property Name="producto_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="indicador_producto_detalle" Relationship="Self.fk_indicador_producto_detalle_indicador_producto1" FromRole="indicador_producto" ToRole="indicador_producto_detalle" />
+          <NavigationProperty Name="lista_indicador" Relationship="Self.fk_indicador_producto_lista_indicador1" FromRole="indicador_producto" ToRole="lista_indicador" />
+          <NavigationProperty Name="producto" Relationship="Self.fk_indicador_producto_producto1" FromRole="indicador_producto" ToRole="producto" />
+        </EntityType>
+        <EntityType Name="indicador_producto_detalle">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="indicador_producto_id" Type="Int32" Nullable="false" />
+          <Property Name="vigencia" Type="Int32" />
+          <Property Name="valor" Type="Double" />
+          <NavigationProperty Name="indicador_producto" Relationship="Self.fk_indicador_producto_detalle_indicador_producto1" FromRole="indicador_producto_detalle" ToRole="indicador_producto" />
+        </EntityType>
+        <EntityType Name="insumo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="vigencia" Type="Int32" />
+          <Property Name="valor" Type="Double" />
+          <Property Name="actividad_id" Type="Int32" Nullable="false" />
+          <Property Name="lis_detalle_id_tipo" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="actividad_mga" Relationship="Self.fk_insumo_actividad1" FromRole="insumo" ToRole="actividad_mga" />
+          <NavigationProperty Name="lis_detalle" Relationship="Self.fk_insumo_lis_detalle1" FromRole="insumo" ToRole="lis_detalle" />
+        </EntityType>
+        <EntityType Name="lis_detalle">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="unidades" Type="Int32" />
+          <Property Name="codigo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="descripcion" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="lis_nombre_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="actividad" Relationship="Self.fk_actividad_lis_detalle2" FromRole="lis_detalle" ToRole="actividad" />
+          <NavigationProperty Name="actividad_mga" Relationship="Self.fk_actividad_lis_detalle1" FromRole="lis_detalle" ToRole="actividad_mga" />
+          <NavigationProperty Name="acuerdoAprobacion" Relationship="Self.fk_acuerdoAprobacion_lis_detalle1" FromRole="lis_detalle" ToRole="acuerdoAprobacion" />
+          <NavigationProperty Name="auditoria" Relationship="Self.fk_auditoria_lis_detalle1" FromRole="lis_detalle" ToRole="auditoria" />
+          <NavigationProperty Name="cuenta" Relationship="Self.fk_cuenta_lis_detalle1" FromRole="lis_detalle" ToRole="cuenta" />
+          <NavigationProperty Name="cumplimiento_requisitos" Relationship="Self.fk_cumplimiento_requisitos_lis_detalle1" FromRole="lis_detalle" ToRole="cumplimiento_requisitos" />
+          <NavigationProperty Name="fuente_financiacion" Relationship="Self.fk_fuente_financiacion_lis_detalle1" FromRole="lis_detalle" ToRole="fuente_financiacion" />
+          <NavigationProperty Name="fuente_financiacion1" Relationship="Self.fk_fuente_financiacion_lis_detalle2" FromRole="lis_detalle" ToRole="fuente_financiacion" />
+          <NavigationProperty Name="fuente_financiacion2" Relationship="Self.fk_fuente_financiacion_lis_detalle3" FromRole="lis_detalle" ToRole="fuente_financiacion" />
+          <NavigationProperty Name="fuente_financiacion3" Relationship="Self.fk_fuente_financiacion_lis_detalle4" FromRole="lis_detalle" ToRole="fuente_financiacion" />
+          <NavigationProperty Name="incorporacion_presupuestal" Relationship="Self.fk_incorporacion_presupuestal_lis_detalle1" FromRole="lis_detalle" ToRole="incorporacion_presupuestal" />
+          <NavigationProperty Name="incorporacion_presupuestal1" Relationship="Self.fk_incorporacion_presupuestal_lis_detalle2" FromRole="lis_detalle" ToRole="incorporacion_presupuestal" />
+          <NavigationProperty Name="indicador" Relationship="Self.fk_indicador_lis_detalle1" FromRole="lis_detalle" ToRole="indicador" />
+          <NavigationProperty Name="insumo" Relationship="Self.fk_insumo_lis_detalle1" FromRole="lis_detalle" ToRole="insumo" />
+          <NavigationProperty Name="lis_nombre" Relationship="Self.fk_lis_detalle_lis_nombre" FromRole="lis_detalle" ToRole="lis_nombre" />
+          <NavigationProperty Name="lista_indicador" Relationship="Self.fk_lista_indicador_lis_detalle1" FromRole="lis_detalle" ToRole="lista_indicador" />
+          <NavigationProperty Name="lista_indicador1" Relationship="Self.fk_lista_indicador_lis_detalle2" FromRole="lis_detalle" ToRole="lista_indicador" />
+          <NavigationProperty Name="producto" Relationship="Self.fk_producto_lis_detalle1" FromRole="lis_detalle" ToRole="producto" />
+          <NavigationProperty Name="proyecto" Relationship="Self.fk_proyecto_lis_detalle1" FromRole="lis_detalle" ToRole="proyecto" />
+          <NavigationProperty Name="proyecto1" Relationship="Self.fk_proyecto_lis_detalle2" FromRole="lis_detalle" ToRole="proyecto" />
+        </EntityType>
+        <EntityType Name="lis_nombre">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="lis_detalle" Relationship="Self.fk_lis_detalle_lis_nombre" FromRole="lis_nombre" ToRole="lis_detalle" />
+        </EntityType>
+        <EntityType Name="lista_indicador">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="lis_detalle_id_tipoindicador" Type="Int32" Nullable="false" />
+          <Property Name="lis_detalle_id_sector" Type="Int32" Nullable="false" />
+          <Property Name="codigo_indicador" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nombre_indicador" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="unidad" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="formula" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="descripcion" Type="String" MaxLength="1200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="indicador_gestion" Relationship="Self.fk_indicador_gestion_lista_indicador1" FromRole="lista_indicador" ToRole="indicador_gestion" />
+          <NavigationProperty Name="indicador_producto" Relationship="Self.fk_indicador_producto_lista_indicador1" FromRole="lista_indicador" ToRole="indicador_producto" />
+          <NavigationProperty Name="lis_detalle" Relationship="Self.fk_lista_indicador_lis_detalle1" FromRole="lista_indicador" ToRole="lis_detalle" />
+          <NavigationProperty Name="lis_detalle1" Relationship="Self.fk_lista_indicador_lis_detalle2" FromRole="lista_indicador" ToRole="lis_detalle" />
+        </EntityType>
+        <EntityType Name="objetivo_especifico">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="tipo" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="proyecto_bpin" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="proyecto" Relationship="Self.fk_objetivo_especifico_proyecto1" FromRole="objetivo_especifico" ToRole="proyecto" />
+          <NavigationProperty Name="producto" Relationship="Self.fk_producto_objetivo_especifico1" FromRole="objetivo_especifico" ToRole="producto" />
+        </EntityType>
+        <EntityType Name="producto">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="cantidad" Type="Double" />
+          <Property Name="objetivo_especifico_id" Type="Int32" Nullable="false" />
+          <Property Name="lis_detalle_id_unidadmedida" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="actividad_mga" Relationship="Self.fk_actividad_producto1" FromRole="producto" ToRole="actividad_mga" />
+          <NavigationProperty Name="indicador_producto" Relationship="Self.fk_indicador_producto_producto1" FromRole="producto" ToRole="indicador_producto" />
+          <NavigationProperty Name="lis_detalle" Relationship="Self.fk_producto_lis_detalle1" FromRole="producto" ToRole="lis_detalle" />
+          <NavigationProperty Name="objetivo_especifico" Relationship="Self.fk_producto_objetivo_especifico1" FromRole="producto" ToRole="objetivo_especifico" />
+        </EntityType>
+        <EntityType Name="proyecto">
+          <Key>
+            <PropertyRef Name="bpin" />
+          </Key>
+          <Property Name="bpin" Type="Int32" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="objetivo_general" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="ano_final" Type="Int32" />
+          <Property Name="ano_inicial" Type="Int32" />
+          <Property Name="fecha_creacion" Type="DateTime" Precision="0" />
+          <Property Name="entidadEjecutora_idEntidadEjecutora" Type="Int32" Nullable="false" />
+          <Property Name="ava_fisico" Type="Double" />
+          <Property Name="ava_financiero" Type="Double" />
+          <Property Name="num_beneficiarios" Type="Int32" />
+          <Property Name="total_proyecto" Type="Int32" />
+          <Property Name="lis_detalle_id_sector" Type="Int32" Nullable="false" />
+          <Property Name="lis_detalle_id_localizacion" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="acuerdoAprobacion" Relationship="Self.fk_acuerdoAprobacion_proyecto2" FromRole="proyecto" ToRole="acuerdoAprobacion" />
+          <NavigationProperty Name="alerta" Relationship="Self.fk_alerta_proyecto1" FromRole="proyecto" ToRole="alerta" />
+          <NavigationProperty Name="auditoria" Relationship="Self.fk_auditoria_proyecto1" FromRole="proyecto" ToRole="auditoria" />
+          <NavigationProperty Name="cuenta" Relationship="Self.fk_cuenta_proyecto1" FromRole="proyecto" ToRole="cuenta" />
+          <NavigationProperty Name="entidadEjecutora" Relationship="Self.fk_proyecto_entidadEjecutora1" FromRole="proyecto" ToRole="entidadEjecutora" />
+          <NavigationProperty Name="fuente_financiacion_has_proyecto" Relationship="Self.fk_fuente_financiacion_has_proyecto_proyecto2" FromRole="proyecto" ToRole="fuente_financiacion_has_proyecto" />
+          <NavigationProperty Name="incorporacion_presupuestal" Relationship="Self.fk_incorporacion_presupuestal_proyecto1" FromRole="proyecto" ToRole="incorporacion_presupuestal" />
+          <NavigationProperty Name="indicador" Relationship="Self.fk_indicador_proyecto2" FromRole="proyecto" ToRole="indicador" />
+          <NavigationProperty Name="lis_detalle" Relationship="Self.fk_proyecto_lis_detalle1" FromRole="proyecto" ToRole="lis_detalle" />
+          <NavigationProperty Name="lis_detalle1" Relationship="Self.fk_proyecto_lis_detalle2" FromRole="proyecto" ToRole="lis_detalle" />
+          <NavigationProperty Name="objetivo_especifico" Relationship="Self.fk_objetivo_especifico_proyecto1" FromRole="proyecto" ToRole="objetivo_especifico" />
+          <NavigationProperty Name="proyecto_has_usuario_has_rol" Relationship="Self.fk_proyecto_has_usuario_proyecto2" FromRole="proyecto" ToRole="proyecto_has_usuario_has_rol" />
+        </EntityType>
+        <EntityType Name="proyecto_has_usuario_has_rol">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="usuario_idUsuario" Type="Int32" Nullable="false" />
+          <Property Name="rol_idRol" Type="Int32" Nullable="false" />
+          <Property Name="proyecto_bpin" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="proyecto" Relationship="Self.fk_proyecto_has_usuario_proyecto2" FromRole="proyecto_has_usuario_has_rol" ToRole="proyecto" />
+          <NavigationProperty Name="rol" Relationship="Self.fk_proyecto_has_usuario_rol1" FromRole="proyecto_has_usuario_has_rol" ToRole="rol" />
+          <NavigationProperty Name="usuario" Relationship="Self.fk_proyecto_has_usuario_usuario1" FromRole="proyecto_has_usuario_has_rol" ToRole="usuario" />
+        </EntityType>
+        <EntityType Name="reintegro">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="fecha" Type="DateTime" Precision="0" />
+          <Property Name="documento" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="num_documento" Type="Int32" />
+          <Property Name="rendimiento_financiero" Type="Double" />
+          <Property Name="valor_reintegro_no_ejecutado" Type="Double" />
+          <Property Name="total_reintegro" Type="Double" />
+          <Property Name="cuenta_numero" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="cuenta" Relationship="Self.fk_reintegro_cuenta1" FromRole="reintegro" ToRole="cuenta" />
+        </EntityType>
+        <EntityType Name="rol">
+          <Key>
+            <PropertyRef Name="idRol" />
+          </Key>
+          <Property Name="idRol" Type="Int32" Nullable="false" />
+          <Property Name="nombreRol" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descripcion" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="proyecto_has_usuario_has_rol" Relationship="Self.fk_proyecto_has_usuario_rol1" FromRole="rol" ToRole="proyecto_has_usuario_has_rol" />
+        </EntityType>
+        <EntityType Name="rubro">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="descripcion" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="incorporacion_presupuestal" Relationship="Self.fk_incorporacion_presupuestal_rubro1" FromRole="rubro" ToRole="incorporacion_presupuestal" />
+        </EntityType>
+        <EntityType Name="usuario">
+          <Key>
+            <PropertyRef Name="idUsuario" />
+          </Key>
+          <Property Name="idUsuario" Type="Int32" Nullable="false" />
+          <Property Name="tipoIdentificacion" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="identificacion" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nombreUno" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nombreDos" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="apellidoUno" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="apellidoDos" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="telFijo" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="telCelular" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tipoVinculacion" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cargo" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="fechaCulminacion" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="usuario1" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="clave" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="proyecto_has_usuario_has_rol" Relationship="Self.fk_proyecto_has_usuario_usuario1" FromRole="usuario" ToRole="proyecto_has_usuario_has_rol" />
+        </EntityType>
+        <Association Name="fk_actividad_actividad_mga1">
+          <End Role="actividad_mga" Type="Self.actividad_mga" Multiplicity="1" />
+          <End Role="actividad" Type="Self.actividad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="actividad_mga">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="actividad">
+              <PropertyRef Name="actividad_mga_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_actividad_detalle_actividad1">
+          <End Role="actividad" Type="Self.actividad" Multiplicity="1" />
+          <End Role="actividad_detalle" Type="Self.actividad_detalle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="actividad">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="actividad_detalle">
+              <PropertyRef Name="actividad_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_actividad_lis_detalle2">
+          <End Role="lis_detalle" Type="Self.lis_detalle" Multiplicity="1" />
+          <End Role="actividad" Type="Self.actividad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lis_detalle">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="actividad">
+              <PropertyRef Name="lis_detalle_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_actividad_lis_detalle1">
+          <End Role="lis_detalle" Type="Self.lis_detalle" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="actividad_mga" Type="Self.actividad_mga" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lis_detalle">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="actividad_mga">
+              <PropertyRef Name="lis_detalle_id_etapa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_actividad_producto1">
+          <End Role="producto" Type="Self.producto" Multiplicity="1" />
+          <End Role="actividad_mga" Type="Self.actividad_mga" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="producto">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="actividad_mga">
+              <PropertyRef Name="producto_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_insumo_actividad1">
+          <End Role="actividad_mga" Type="Self.actividad_mga" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="insumo" Type="Self.insumo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="actividad_mga">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="insumo">
+              <PropertyRef Name="actividad_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_acuerdoAprobacion_fuente_financiacion1">
+          <End Role="fuente_financiacion" Type="Self.fuente_financiacion" Multiplicity="1" />
+          <End Role="acuerdoAprobacion" Type="Self.acuerdoAprobacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fuente_financiacion">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="acuerdoAprobacion">
+              <PropertyRef Name="fuente_financiacion_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_acuerdoAprobacion_lis_detalle1">
+          <End Role="lis_detalle" Type="Self.lis_detalle" Multiplicity="1" />
+          <End Role="acuerdoAprobacion" Type="Self.acuerdoAprobacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lis_detalle">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="acuerdoAprobacion">
+              <PropertyRef Name="lis_detalle_id_ocad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_acuerdoAprobacion_proyecto2">
+          <End Role="proyecto" Type="Self.proyecto" Multiplicity="1" />
+          <End Role="acuerdoAprobacion" Type="Self.acuerdoAprobacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="proyecto">
+              <PropertyRef Name="bpin" />
+            </Principal>
+            <Dependent Role="acuerdoAprobacion">
+              <PropertyRef Name="proyecto_bpin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_alerta_proyecto1">
+          <End Role="proyecto" Type="Self.proyecto" Multiplicity="1" />
+          <End Role="alerta" Type="Self.alerta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="proyecto">
+              <PropertyRef Name="bpin" />
+            </Principal>
+            <Dependent Role="alerta">
+              <PropertyRef Name="proyecto_bpin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_auditoria_lis_detalle1">
+          <End Role="lis_detalle" Type="Self.lis_detalle" Multiplicity="1" />
+          <End Role="auditoria" Type="Self.auditoria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lis_detalle">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="auditoria">
+              <PropertyRef Name="lis_detalle_id_municipio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_auditoria_proyecto1">
+          <End Role="proyecto" Type="Self.proyecto" Multiplicity="1" />
+          <End Role="auditoria" Type="Self.auditoria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="proyecto">
+              <PropertyRef Name="bpin" />
+            </Principal>
+            <Dependent Role="auditoria">
+              <PropertyRef Name="proyecto_bpin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_contactoEntidadEjecutora_has_entidadEjecutora1_contactoEnt2">
+          <End Role="contactoEntidadEjecutora" Type="Self.contactoEntidadEjecutora" Multiplicity="1" />
+          <End Role="contactoEntidadEjecutora_has_entidadEjecutora" Type="Self.contactoEntidadEjecutora_has_entidadEjecutora" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="contactoEntidadEjecutora">
+              <PropertyRef Name="idContactoEntidad" />
+            </Principal>
+            <Dependent Role="contactoEntidadEjecutora_has_entidadEjecutora">
+              <PropertyRef Name="contactoEntidadEjecutora_idContactoEntidad1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_contactoEntidadEjecutora_has_entidadEjecutora1_entidadEjec2">
+          <End Role="entidadEjecutora" Type="Self.entidadEjecutora" Multiplicity="1" />
+          <End Role="contactoEntidadEjecutora_has_entidadEjecutora" Type="Self.contactoEntidadEjecutora_has_entidadEjecutora" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="entidadEjecutora">
+              <PropertyRef Name="idEntidadEjecutora" />
+            </Principal>
+            <Dependent Role="contactoEntidadEjecutora_has_entidadEjecutora">
+              <PropertyRef Name="entidadEjecutora_idEntidadEjecutora1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_cuenta_lis_detalle1">
+          <End Role="lis_detalle" Type="Self.lis_detalle" Multiplicity="1" />
+          <End Role="cuenta" Type="Self.cuenta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lis_detalle">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="cuenta">
+              <PropertyRef Name="lis_detalle_id_banco" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_cuenta_proyecto1">
+          <End Role="proyecto" Type="Self.proyecto" Multiplicity="1" />
+          <End Role="cuenta" Type="Self.cuenta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="proyecto">
+              <PropertyRef Name="bpin" />
+            </Principal>
+            <Dependent Role="cuenta">
+              <PropertyRef Name="proyecto_bpin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_reintegro_cuenta1">
+          <End Role="cuenta" Type="Self.cuenta" Multiplicity="1" />
+          <End Role="reintegro" Type="Self.reintegro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cuenta">
+              <PropertyRef Name="numero" />
+            </Principal>
+            <Dependent Role="reintegro">
+              <PropertyRef Name="cuenta_numero" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_cumplimiento_requisitos_lis_detalle1">
+          <End Role="lis_detalle" Type="Self.lis_detalle" Multiplicity="1" />
+          <End Role="cumplimiento_requisitos" Type="Self.cumplimiento_requisitos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lis_detalle">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="cumplimiento_requisitos">
+              <PropertyRef Name="lis_detalle_id_ocad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_proyecto_entidadEjecutora1">
+          <End Role="entidadEjecutora" Type="Self.entidadEjecutora" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="proyecto" Type="Self.proyecto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="entidadEjecutora">
+              <PropertyRef Name="idEntidadEjecutora" />
+            </Principal>
+            <Dependent Role="proyecto">
+              <PropertyRef Name="entidadEjecutora_idEntidadEjecutora" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_fuente_financiacion_detalle_fuente_financiacion1">
+          <End Role="fuente_financiacion" Type="Self.fuente_financiacion" Multiplicity="1" />
+          <End Role="fuente_financiacion_detalle" Type="Self.fuente_financiacion_detalle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fuente_financiacion">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="fuente_financiacion_detalle">
+              <PropertyRef Name="fuente_financiacion_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_fuente_financiacion_has_proyecto_fuente_financiacion1">
+          <End Role="fuente_financiacion" Type="Self.fuente_financiacion" Multiplicity="1" />
+          <End Role="fuente_financiacion_has_proyecto" Type="Self.fuente_financiacion_has_proyecto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fuente_financiacion">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="fuente_financiacion_has_proyecto">
+              <PropertyRef Name="fuente_financiacion_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_fuente_financiacion_lis_detalle1">
+          <End Role="lis_detalle" Type="Self.lis_detalle" Multiplicity="1" />
+          <End Role="fuente_financiacion" Type="Self.fuente_financiacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lis_detalle">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="fuente_financiacion">
+              <PropertyRef Name="lis_detalle_id_etapa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_fuente_financiacion_lis_detalle2">
+          <End Role="lis_detalle" Type="Self.lis_detalle" Multiplicity="1" />
+          <End Role="fuente_financiacion" Type="Self.fuente_financiacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lis_detalle">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="fuente_financiacion">
+              <PropertyRef Name="lis_detalle_id_tipoenttidad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_fuente_financiacion_lis_detalle3">
+          <End Role="lis_detalle" Type="Self.lis_detalle" Multiplicity="1" />
+          <End Role="fuente_financiacion" Type="Self.fuente_financiacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lis_detalle">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="fuente_financiacion">
+              <PropertyRef Name="lis_detalle_id_tiporecurso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_fuente_financiacion_lis_detalle4">
+          <End Role="lis_detalle" Type="Self.lis_detalle" Multiplicity="1" />
+          <End Role="fuente_financiacion" Type="Self.fuente_financiacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lis_detalle">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="fuente_financiacion">
+              <PropertyRef Name="lis_detalle_id_identidad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_incorporacion_presupuestal_fuente_financiacion1">
+          <End Role="fuente_financiacion" Type="Self.fuente_financiacion" Multiplicity="1" />
+          <End Role="incorporacion_presupuestal" Type="Self.incorporacion_presupuestal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fuente_financiacion">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="incorporacion_presupuestal">
+              <PropertyRef Name="fuente_financiacion_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_fuente_financiacion_has_proyecto_proyecto2">
+          <End Role="proyecto" Type="Self.proyecto" Multiplicity="1" />
+          <End Role="fuente_financiacion_has_proyecto" Type="Self.fuente_financiacion_has_proyecto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="proyecto">
+              <PropertyRef Name="bpin" />
+            </Principal>
+            <Dependent Role="fuente_financiacion_has_proyecto">
+              <PropertyRef Name="proyecto_bpin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_incorporacion_presupuestal_lis_detalle1">
+          <End Role="lis_detalle" Type="Self.lis_detalle" Multiplicity="1" />
+          <End Role="incorporacion_presupuestal" Type="Self.incorporacion_presupuestal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lis_detalle">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="incorporacion_presupuestal">
+              <PropertyRef Name="lis_detalle_id_tipo_acto_adm" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_incorporacion_presupuestal_lis_detalle2">
+          <End Role="lis_detalle" Type="Self.lis_detalle" Multiplicity="1" />
+          <End Role="incorporacion_presupuestal" Type="Self.incorporacion_presupuestal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lis_detalle">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="incorporacion_presupuestal">
+              <PropertyRef Name="lis_detalle_id_tipo_vigencia_futura" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_incorporacion_presupuestal_proyecto1">
+          <End Role="proyecto" Type="Self.proyecto" Multiplicity="1" />
+          <End Role="incorporacion_presupuestal" Type="Self.incorporacion_presupuestal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="proyecto">
+              <PropertyRef Name="bpin" />
+            </Principal>
+            <Dependent Role="incorporacion_presupuestal">
+              <PropertyRef Name="proyecto_bpin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_incorporacion_presupuestal_rubro1">
+          <End Role="rubro" Type="Self.rubro" Multiplicity="1" />
+          <End Role="incorporacion_presupuestal" Type="Self.incorporacion_presupuestal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="rubro">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="incorporacion_presupuestal">
+              <PropertyRef Name="rubro_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_indicador_lis_detalle1">
+          <End Role="lis_detalle" Type="Self.lis_detalle" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="indicador" Type="Self.indicador" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lis_detalle">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="indicador">
+              <PropertyRef Name="lis_detalle_id_unidadmedida" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_indicador_proyecto2">
+          <End Role="proyecto" Type="Self.proyecto" Multiplicity="1" />
+          <End Role="indicador" Type="Self.indicador" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="proyecto">
+              <PropertyRef Name="bpin" />
+            </Principal>
+            <Dependent Role="indicador">
+              <PropertyRef Name="proyecto_bpin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_indicador_gestion_detalle_indicador_gestion1">
+          <End Role="indicador_gestion" Type="Self.indicador_gestion" Multiplicity="1" />
+          <End Role="indicador_gestion_detalle" Type="Self.indicador_gestion_detalle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="indicador_gestion">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="indicador_gestion_detalle">
+              <PropertyRef Name="indicador_gestion_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_indicador_gestion_lista_indicador1">
+          <End Role="lista_indicador" Type="Self.lista_indicador" Multiplicity="1" />
+          <End Role="indicador_gestion" Type="Self.indicador_gestion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lista_indicador">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="indicador_gestion">
+              <PropertyRef Name="lista_indicador_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_indicador_producto_detalle_indicador_producto1">
+          <End Role="indicador_producto" Type="Self.indicador_producto" Multiplicity="1" />
+          <End Role="indicador_producto_detalle" Type="Self.indicador_producto_detalle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="indicador_producto">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="indicador_producto_detalle">
+              <PropertyRef Name="indicador_producto_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_indicador_producto_lista_indicador1">
+          <End Role="lista_indicador" Type="Self.lista_indicador" Multiplicity="1" />
+          <End Role="indicador_producto" Type="Self.indicador_producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lista_indicador">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="indicador_producto">
+              <PropertyRef Name="lista_indicador_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_indicador_producto_producto1">
+          <End Role="producto" Type="Self.producto" Multiplicity="1" />
+          <End Role="indicador_producto" Type="Self.indicador_producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="producto">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="indicador_producto">
+              <PropertyRef Name="producto_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_insumo_lis_detalle1">
+          <End Role="lis_detalle" Type="Self.lis_detalle" Multiplicity="1" />
+          <End Role="insumo" Type="Self.insumo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lis_detalle">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="insumo">
+              <PropertyRef Name="lis_detalle_id_tipo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_lis_detalle_lis_nombre">
+          <End Role="lis_nombre" Type="Self.lis_nombre" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="lis_detalle" Type="Self.lis_detalle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lis_nombre">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="lis_detalle">
+              <PropertyRef Name="lis_nombre_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_lista_indicador_lis_detalle1">
+          <End Role="lis_detalle" Type="Self.lis_detalle" Multiplicity="1" />
+          <End Role="lista_indicador" Type="Self.lista_indicador" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lis_detalle">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="lista_indicador">
+              <PropertyRef Name="lis_detalle_id_tipoindicador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_lista_indicador_lis_detalle2">
+          <End Role="lis_detalle" Type="Self.lis_detalle" Multiplicity="1" />
+          <End Role="lista_indicador" Type="Self.lista_indicador" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lis_detalle">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="lista_indicador">
+              <PropertyRef Name="lis_detalle_id_sector" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_producto_lis_detalle1">
+          <End Role="lis_detalle" Type="Self.lis_detalle" Multiplicity="1" />
+          <End Role="producto" Type="Self.producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lis_detalle">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="producto">
+              <PropertyRef Name="lis_detalle_id_unidadmedida" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_proyecto_lis_detalle1">
+          <End Role="lis_detalle" Type="Self.lis_detalle" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="proyecto" Type="Self.proyecto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lis_detalle">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="proyecto">
+              <PropertyRef Name="lis_detalle_id_sector" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_proyecto_lis_detalle2">
+          <End Role="lis_detalle" Type="Self.lis_detalle" Multiplicity="1" />
+          <End Role="proyecto" Type="Self.proyecto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lis_detalle">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="proyecto">
+              <PropertyRef Name="lis_detalle_id_localizacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_objetivo_especifico_proyecto1">
+          <End Role="proyecto" Type="Self.proyecto" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="objetivo_especifico" Type="Self.objetivo_especifico" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="proyecto">
+              <PropertyRef Name="bpin" />
+            </Principal>
+            <Dependent Role="objetivo_especifico">
+              <PropertyRef Name="proyecto_bpin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_producto_objetivo_especifico1">
+          <End Role="objetivo_especifico" Type="Self.objetivo_especifico" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="producto" Type="Self.producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="objetivo_especifico">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="producto">
+              <PropertyRef Name="objetivo_especifico_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_proyecto_has_usuario_proyecto2">
+          <End Role="proyecto" Type="Self.proyecto" Multiplicity="1" />
+          <End Role="proyecto_has_usuario_has_rol" Type="Self.proyecto_has_usuario_has_rol" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="proyecto">
+              <PropertyRef Name="bpin" />
+            </Principal>
+            <Dependent Role="proyecto_has_usuario_has_rol">
+              <PropertyRef Name="proyecto_bpin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_proyecto_has_usuario_rol1">
+          <End Role="rol" Type="Self.rol" Multiplicity="1" />
+          <End Role="proyecto_has_usuario_has_rol" Type="Self.proyecto_has_usuario_has_rol" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="rol">
+              <PropertyRef Name="idRol" />
+            </Principal>
+            <Dependent Role="proyecto_has_usuario_has_rol">
+              <PropertyRef Name="rol_idRol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_proyecto_has_usuario_usuario1">
+          <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
+          <End Role="proyecto_has_usuario_has_rol" Type="Self.proyecto_has_usuario_has_rol" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario">
+              <PropertyRef Name="idUsuario" />
+            </Principal>
+            <Dependent Role="proyecto_has_usuario_has_rol">
+              <PropertyRef Name="usuario_idUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="bd_gesproyEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="actividad" EntityType="Self.actividad" />
+          <EntitySet Name="actividad_detalle" EntityType="Self.actividad_detalle" />
+          <EntitySet Name="actividad_mga" EntityType="Self.actividad_mga" />
+          <EntitySet Name="acuerdoAprobacion" EntityType="Self.acuerdoAprobacion" />
+          <EntitySet Name="alerta" EntityType="Self.alerta" />
+          <EntitySet Name="auditoria" EntityType="Self.auditoria" />
+          <EntitySet Name="contactoEntidadEjecutora" EntityType="Self.contactoEntidadEjecutora" />
+          <EntitySet Name="contactoEntidadEjecutora_has_entidadEjecutora" EntityType="Self.contactoEntidadEjecutora_has_entidadEjecutora" />
+          <EntitySet Name="cuenta" EntityType="Self.cuenta" />
+          <EntitySet Name="cumplimiento_requisitos" EntityType="Self.cumplimiento_requisitos" />
+          <EntitySet Name="entidadEjecutora" EntityType="Self.entidadEjecutora" />
+          <EntitySet Name="fuente_financiacion" EntityType="Self.fuente_financiacion" />
+          <EntitySet Name="fuente_financiacion_detalle" EntityType="Self.fuente_financiacion_detalle" />
+          <EntitySet Name="fuente_financiacion_has_proyecto" EntityType="Self.fuente_financiacion_has_proyecto" />
+          <EntitySet Name="incorporacion_presupuestal" EntityType="Self.incorporacion_presupuestal" />
+          <EntitySet Name="indicador" EntityType="Self.indicador" />
+          <EntitySet Name="indicador_gestion" EntityType="Self.indicador_gestion" />
+          <EntitySet Name="indicador_gestion_detalle" EntityType="Self.indicador_gestion_detalle" />
+          <EntitySet Name="indicador_producto" EntityType="Self.indicador_producto" />
+          <EntitySet Name="indicador_producto_detalle" EntityType="Self.indicador_producto_detalle" />
+          <EntitySet Name="insumo" EntityType="Self.insumo" />
+          <EntitySet Name="lis_detalle" EntityType="Self.lis_detalle" />
+          <EntitySet Name="lis_nombre" EntityType="Self.lis_nombre" />
+          <EntitySet Name="lista_indicador" EntityType="Self.lista_indicador" />
+          <EntitySet Name="objetivo_especifico" EntityType="Self.objetivo_especifico" />
+          <EntitySet Name="producto" EntityType="Self.producto" />
+          <EntitySet Name="proyecto" EntityType="Self.proyecto" />
+          <EntitySet Name="proyecto_has_usuario_has_rol" EntityType="Self.proyecto_has_usuario_has_rol" />
+          <EntitySet Name="reintegro" EntityType="Self.reintegro" />
+          <EntitySet Name="rol" EntityType="Self.rol" />
+          <EntitySet Name="rubro" EntityType="Self.rubro" />
+          <EntitySet Name="usuario" EntityType="Self.usuario" />
+          <AssociationSet Name="fk_actividad_actividad_mga1" Association="Self.fk_actividad_actividad_mga1">
+            <End Role="actividad_mga" EntitySet="actividad_mga" />
+            <End Role="actividad" EntitySet="actividad" />
+          </AssociationSet>
+          <AssociationSet Name="fk_actividad_detalle_actividad1" Association="Self.fk_actividad_detalle_actividad1">
+            <End Role="actividad" EntitySet="actividad" />
+            <End Role="actividad_detalle" EntitySet="actividad_detalle" />
+          </AssociationSet>
+          <AssociationSet Name="fk_actividad_lis_detalle2" Association="Self.fk_actividad_lis_detalle2">
+            <End Role="lis_detalle" EntitySet="lis_detalle" />
+            <End Role="actividad" EntitySet="actividad" />
+          </AssociationSet>
+          <AssociationSet Name="fk_actividad_lis_detalle1" Association="Self.fk_actividad_lis_detalle1">
+            <End Role="lis_detalle" EntitySet="lis_detalle" />
+            <End Role="actividad_mga" EntitySet="actividad_mga" />
+          </AssociationSet>
+          <AssociationSet Name="fk_actividad_producto1" Association="Self.fk_actividad_producto1">
+            <End Role="producto" EntitySet="producto" />
+            <End Role="actividad_mga" EntitySet="actividad_mga" />
+          </AssociationSet>
+          <AssociationSet Name="fk_insumo_actividad1" Association="Self.fk_insumo_actividad1">
+            <End Role="actividad_mga" EntitySet="actividad_mga" />
+            <End Role="insumo" EntitySet="insumo" />
+          </AssociationSet>
+          <AssociationSet Name="fk_acuerdoAprobacion_fuente_financiacion1" Association="Self.fk_acuerdoAprobacion_fuente_financiacion1">
+            <End Role="fuente_financiacion" EntitySet="fuente_financiacion" />
+            <End Role="acuerdoAprobacion" EntitySet="acuerdoAprobacion" />
+          </AssociationSet>
+          <AssociationSet Name="fk_acuerdoAprobacion_lis_detalle1" Association="Self.fk_acuerdoAprobacion_lis_detalle1">
+            <End Role="lis_detalle" EntitySet="lis_detalle" />
+            <End Role="acuerdoAprobacion" EntitySet="acuerdoAprobacion" />
+          </AssociationSet>
+          <AssociationSet Name="fk_acuerdoAprobacion_proyecto2" Association="Self.fk_acuerdoAprobacion_proyecto2">
+            <End Role="proyecto" EntitySet="proyecto" />
+            <End Role="acuerdoAprobacion" EntitySet="acuerdoAprobacion" />
+          </AssociationSet>
+          <AssociationSet Name="fk_alerta_proyecto1" Association="Self.fk_alerta_proyecto1">
+            <End Role="proyecto" EntitySet="proyecto" />
+            <End Role="alerta" EntitySet="alerta" />
+          </AssociationSet>
+          <AssociationSet Name="fk_auditoria_lis_detalle1" Association="Self.fk_auditoria_lis_detalle1">
+            <End Role="lis_detalle" EntitySet="lis_detalle" />
+            <End Role="auditoria" EntitySet="auditoria" />
+          </AssociationSet>
+          <AssociationSet Name="fk_auditoria_proyecto1" Association="Self.fk_auditoria_proyecto1">
+            <End Role="proyecto" EntitySet="proyecto" />
+            <End Role="auditoria" EntitySet="auditoria" />
+          </AssociationSet>
+          <AssociationSet Name="fk_contactoEntidadEjecutora_has_entidadEjecutora1_contactoEnt2" Association="Self.fk_contactoEntidadEjecutora_has_entidadEjecutora1_contactoEnt2">
+            <End Role="contactoEntidadEjecutora" EntitySet="contactoEntidadEjecutora" />
+            <End Role="contactoEntidadEjecutora_has_entidadEjecutora" EntitySet="contactoEntidadEjecutora_has_entidadEjecutora" />
+          </AssociationSet>
+          <AssociationSet Name="fk_contactoEntidadEjecutora_has_entidadEjecutora1_entidadEjec2" Association="Self.fk_contactoEntidadEjecutora_has_entidadEjecutora1_entidadEjec2">
+            <End Role="entidadEjecutora" EntitySet="entidadEjecutora" />
+            <End Role="contactoEntidadEjecutora_has_entidadEjecutora" EntitySet="contactoEntidadEjecutora_has_entidadEjecutora" />
+          </AssociationSet>
+          <AssociationSet Name="fk_cuenta_lis_detalle1" Association="Self.fk_cuenta_lis_detalle1">
+            <End Role="lis_detalle" EntitySet="lis_detalle" />
+            <End Role="cuenta" EntitySet="cuenta" />
+          </AssociationSet>
+          <AssociationSet Name="fk_cuenta_proyecto1" Association="Self.fk_cuenta_proyecto1">
+            <End Role="proyecto" EntitySet="proyecto" />
+            <End Role="cuenta" EntitySet="cuenta" />
+          </AssociationSet>
+          <AssociationSet Name="fk_reintegro_cuenta1" Association="Self.fk_reintegro_cuenta1">
+            <End Role="cuenta" EntitySet="cuenta" />
+            <End Role="reintegro" EntitySet="reintegro" />
+          </AssociationSet>
+          <AssociationSet Name="fk_cumplimiento_requisitos_lis_detalle1" Association="Self.fk_cumplimiento_requisitos_lis_detalle1">
+            <End Role="lis_detalle" EntitySet="lis_detalle" />
+            <End Role="cumplimiento_requisitos" EntitySet="cumplimiento_requisitos" />
+          </AssociationSet>
+          <AssociationSet Name="fk_proyecto_entidadEjecutora1" Association="Self.fk_proyecto_entidadEjecutora1">
+            <End Role="entidadEjecutora" EntitySet="entidadEjecutora" />
+            <End Role="proyecto" EntitySet="proyecto" />
+          </AssociationSet>
+          <AssociationSet Name="fk_fuente_financiacion_detalle_fuente_financiacion1" Association="Self.fk_fuente_financiacion_detalle_fuente_financiacion1">
+            <End Role="fuente_financiacion" EntitySet="fuente_financiacion" />
+            <End Role="fuente_financiacion_detalle" EntitySet="fuente_financiacion_detalle" />
+          </AssociationSet>
+          <AssociationSet Name="fk_fuente_financiacion_has_proyecto_fuente_financiacion1" Association="Self.fk_fuente_financiacion_has_proyecto_fuente_financiacion1">
+            <End Role="fuente_financiacion" EntitySet="fuente_financiacion" />
+            <End Role="fuente_financiacion_has_proyecto" EntitySet="fuente_financiacion_has_proyecto" />
+          </AssociationSet>
+          <AssociationSet Name="fk_fuente_financiacion_lis_detalle1" Association="Self.fk_fuente_financiacion_lis_detalle1">
+            <End Role="lis_detalle" EntitySet="lis_detalle" />
+            <End Role="fuente_financiacion" EntitySet="fuente_financiacion" />
+          </AssociationSet>
+          <AssociationSet Name="fk_fuente_financiacion_lis_detalle2" Association="Self.fk_fuente_financiacion_lis_detalle2">
+            <End Role="lis_detalle" EntitySet="lis_detalle" />
+            <End Role="fuente_financiacion" EntitySet="fuente_financiacion" />
+          </AssociationSet>
+          <AssociationSet Name="fk_fuente_financiacion_lis_detalle3" Association="Self.fk_fuente_financiacion_lis_detalle3">
+            <End Role="lis_detalle" EntitySet="lis_detalle" />
+            <End Role="fuente_financiacion" EntitySet="fuente_financiacion" />
+          </AssociationSet>
+          <AssociationSet Name="fk_fuente_financiacion_lis_detalle4" Association="Self.fk_fuente_financiacion_lis_detalle4">
+            <End Role="lis_detalle" EntitySet="lis_detalle" />
+            <End Role="fuente_financiacion" EntitySet="fuente_financiacion" />
+          </AssociationSet>
+          <AssociationSet Name="fk_incorporacion_presupuestal_fuente_financiacion1" Association="Self.fk_incorporacion_presupuestal_fuente_financiacion1">
+            <End Role="fuente_financiacion" EntitySet="fuente_financiacion" />
+            <End Role="incorporacion_presupuestal" EntitySet="incorporacion_presupuestal" />
+          </AssociationSet>
+          <AssociationSet Name="fk_fuente_financiacion_has_proyecto_proyecto2" Association="Self.fk_fuente_financiacion_has_proyecto_proyecto2">
+            <End Role="proyecto" EntitySet="proyecto" />
+            <End Role="fuente_financiacion_has_proyecto" EntitySet="fuente_financiacion_has_proyecto" />
+          </AssociationSet>
+          <AssociationSet Name="fk_incorporacion_presupuestal_lis_detalle1" Association="Self.fk_incorporacion_presupuestal_lis_detalle1">
+            <End Role="lis_detalle" EntitySet="lis_detalle" />
+            <End Role="incorporacion_presupuestal" EntitySet="incorporacion_presupuestal" />
+          </AssociationSet>
+          <AssociationSet Name="fk_incorporacion_presupuestal_lis_detalle2" Association="Self.fk_incorporacion_presupuestal_lis_detalle2">
+            <End Role="lis_detalle" EntitySet="lis_detalle" />
+            <End Role="incorporacion_presupuestal" EntitySet="incorporacion_presupuestal" />
+          </AssociationSet>
+          <AssociationSet Name="fk_incorporacion_presupuestal_proyecto1" Association="Self.fk_incorporacion_presupuestal_proyecto1">
+            <End Role="proyecto" EntitySet="proyecto" />
+            <End Role="incorporacion_presupuestal" EntitySet="incorporacion_presupuestal" />
+          </AssociationSet>
+          <AssociationSet Name="fk_incorporacion_presupuestal_rubro1" Association="Self.fk_incorporacion_presupuestal_rubro1">
+            <End Role="rubro" EntitySet="rubro" />
+            <End Role="incorporacion_presupuestal" EntitySet="incorporacion_presupuestal" />
+          </AssociationSet>
+          <AssociationSet Name="fk_indicador_lis_detalle1" Association="Self.fk_indicador_lis_detalle1">
+            <End Role="lis_detalle" EntitySet="lis_detalle" />
+            <End Role="indicador" EntitySet="indicador" />
+          </AssociationSet>
+          <AssociationSet Name="fk_indicador_proyecto2" Association="Self.fk_indicador_proyecto2">
+            <End Role="proyecto" EntitySet="proyecto" />
+            <End Role="indicador" EntitySet="indicador" />
+          </AssociationSet>
+          <AssociationSet Name="fk_indicador_gestion_detalle_indicador_gestion1" Association="Self.fk_indicador_gestion_detalle_indicador_gestion1">
+            <End Role="indicador_gestion" EntitySet="indicador_gestion" />
+            <End Role="indicador_gestion_detalle" EntitySet="indicador_gestion_detalle" />
+          </AssociationSet>
+          <AssociationSet Name="fk_indicador_gestion_lista_indicador1" Association="Self.fk_indicador_gestion_lista_indicador1">
+            <End Role="lista_indicador" EntitySet="lista_indicador" />
+            <End Role="indicador_gestion" EntitySet="indicador_gestion" />
+          </AssociationSet>
+          <AssociationSet Name="fk_indicador_producto_detalle_indicador_producto1" Association="Self.fk_indicador_producto_detalle_indicador_producto1">
+            <End Role="indicador_producto" EntitySet="indicador_producto" />
+            <End Role="indicador_producto_detalle" EntitySet="indicador_producto_detalle" />
+          </AssociationSet>
+          <AssociationSet Name="fk_indicador_producto_lista_indicador1" Association="Self.fk_indicador_producto_lista_indicador1">
+            <End Role="lista_indicador" EntitySet="lista_indicador" />
+            <End Role="indicador_producto" EntitySet="indicador_producto" />
+          </AssociationSet>
+          <AssociationSet Name="fk_indicador_producto_producto1" Association="Self.fk_indicador_producto_producto1">
+            <End Role="producto" EntitySet="producto" />
+            <End Role="indicador_producto" EntitySet="indicador_producto" />
+          </AssociationSet>
+          <AssociationSet Name="fk_insumo_lis_detalle1" Association="Self.fk_insumo_lis_detalle1">
+            <End Role="lis_detalle" EntitySet="lis_detalle" />
+            <End Role="insumo" EntitySet="insumo" />
+          </AssociationSet>
+          <AssociationSet Name="fk_lis_detalle_lis_nombre" Association="Self.fk_lis_detalle_lis_nombre">
+            <End Role="lis_nombre" EntitySet="lis_nombre" />
+            <End Role="lis_detalle" EntitySet="lis_detalle" />
+          </AssociationSet>
+          <AssociationSet Name="fk_lista_indicador_lis_detalle1" Association="Self.fk_lista_indicador_lis_detalle1">
+            <End Role="lis_detalle" EntitySet="lis_detalle" />
+            <End Role="lista_indicador" EntitySet="lista_indicador" />
+          </AssociationSet>
+          <AssociationSet Name="fk_lista_indicador_lis_detalle2" Association="Self.fk_lista_indicador_lis_detalle2">
+            <End Role="lis_detalle" EntitySet="lis_detalle" />
+            <End Role="lista_indicador" EntitySet="lista_indicador" />
+          </AssociationSet>
+          <AssociationSet Name="fk_producto_lis_detalle1" Association="Self.fk_producto_lis_detalle1">
+            <End Role="lis_detalle" EntitySet="lis_detalle" />
+            <End Role="producto" EntitySet="producto" />
+          </AssociationSet>
+          <AssociationSet Name="fk_proyecto_lis_detalle1" Association="Self.fk_proyecto_lis_detalle1">
+            <End Role="lis_detalle" EntitySet="lis_detalle" />
+            <End Role="proyecto" EntitySet="proyecto" />
+          </AssociationSet>
+          <AssociationSet Name="fk_proyecto_lis_detalle2" Association="Self.fk_proyecto_lis_detalle2">
+            <End Role="lis_detalle" EntitySet="lis_detalle" />
+            <End Role="proyecto" EntitySet="proyecto" />
+          </AssociationSet>
+          <AssociationSet Name="fk_objetivo_especifico_proyecto1" Association="Self.fk_objetivo_especifico_proyecto1">
+            <End Role="proyecto" EntitySet="proyecto" />
+            <End Role="objetivo_especifico" EntitySet="objetivo_especifico" />
+          </AssociationSet>
+          <AssociationSet Name="fk_producto_objetivo_especifico1" Association="Self.fk_producto_objetivo_especifico1">
+            <End Role="objetivo_especifico" EntitySet="objetivo_especifico" />
+            <End Role="producto" EntitySet="producto" />
+          </AssociationSet>
+          <AssociationSet Name="fk_proyecto_has_usuario_proyecto2" Association="Self.fk_proyecto_has_usuario_proyecto2">
+            <End Role="proyecto" EntitySet="proyecto" />
+            <End Role="proyecto_has_usuario_has_rol" EntitySet="proyecto_has_usuario_has_rol" />
+          </AssociationSet>
+          <AssociationSet Name="fk_proyecto_has_usuario_rol1" Association="Self.fk_proyecto_has_usuario_rol1">
+            <End Role="rol" EntitySet="rol" />
+            <End Role="proyecto_has_usuario_has_rol" EntitySet="proyecto_has_usuario_has_rol" />
+          </AssociationSet>
+          <AssociationSet Name="fk_proyecto_has_usuario_usuario1" Association="Self.fk_proyecto_has_usuario_usuario1">
+            <End Role="usuario" EntitySet="usuario" />
+            <End Role="proyecto_has_usuario_has_rol" EntitySet="proyecto_has_usuario_has_rol" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="bd_gesproyModelStoreContainer" CdmEntityContainer="bd_gesproyEntities">
+          <EntitySetMapping Name="actividad">
+            <EntityTypeMapping TypeName="bd_gesproyModel.actividad">
+              <MappingFragment StoreEntitySet="actividad">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="fecha_inicio" ColumnName="fecha_inicio" />
+                <ScalarProperty Name="fecha_fin" ColumnName="fecha_fin" />
+                <ScalarProperty Name="cantidad_total" ColumnName="cantidad_total" />
+                <ScalarProperty Name="valor_total" ColumnName="valor_total" />
+                <ScalarProperty Name="por_ponderacion" ColumnName="por_ponderacion" />
+                <ScalarProperty Name="actividad_mga_id" ColumnName="actividad_mga_id" />
+                <ScalarProperty Name="lis_detalle_id" ColumnName="lis_detalle_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="actividad_detalle">
+            <EntityTypeMapping TypeName="bd_gesproyModel.actividad_detalle">
+              <MappingFragment StoreEntitySet="actividad_detalle">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="cantidad_avance" ColumnName="cantidad_avance" />
+                <ScalarProperty Name="actividad_id" ColumnName="actividad_id" />
+                <ScalarProperty Name="porc_ejecutado" ColumnName="porc_ejecutado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="actividad_mga">
+            <EntityTypeMapping TypeName="bd_gesproyModel.actividad_mga">
+              <MappingFragment StoreEntitySet="actividad_mga">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="lis_detalle_id_etapa" ColumnName="lis_detalle_id_etapa" />
+                <ScalarProperty Name="producto_id" ColumnName="producto_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="acuerdoAprobacion">
+            <EntityTypeMapping TypeName="bd_gesproyModel.acuerdoAprobacion">
+              <MappingFragment StoreEntitySet="acuerdoAprobacion">
+                <ScalarProperty Name="idAcuerdoAprobacion" ColumnName="idAcuerdoAprobacion" />
+                <ScalarProperty Name="numeroAcuerdo" ColumnName="numeroAcuerdo" />
+                <ScalarProperty Name="fechaAcuerdo" ColumnName="fechaAcuerdo" />
+                <ScalarProperty Name="valorAcuerdo" ColumnName="valorAcuerdo" />
+                <ScalarProperty Name="vigencia" ColumnName="vigencia" />
+                <ScalarProperty Name="fuente_financiacion_id" ColumnName="fuente_financiacion_id" />
+                <ScalarProperty Name="proyecto_bpin" ColumnName="proyecto_bpin" />
+                <ScalarProperty Name="lis_detalle_id_ocad" ColumnName="lis_detalle_id_ocad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="alerta">
+            <EntityTypeMapping TypeName="bd_gesproyModel.alerta">
+              <MappingFragment StoreEntitySet="alerta">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="proyecto_bpin" ColumnName="proyecto_bpin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="auditoria">
+            <EntityTypeMapping TypeName="bd_gesproyModel.auditoria">
+              <MappingFragment StoreEntitySet="auditoria">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="tipo_foro" ColumnName="tipo_foro" />
+                <ScalarProperty Name="nombre_foro" ColumnName="nombre_foro" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="grupo_encargado" ColumnName="grupo_encargado" />
+                <ScalarProperty Name="asistentes" ColumnName="asistentes" />
+                <ScalarProperty Name="acompanamiento" ColumnName="acompanamiento" />
+                <ScalarProperty Name="grupo_acompanamiento" ColumnName="grupo_acompanamiento" />
+                <ScalarProperty Name="proyecto_bpin" ColumnName="proyecto_bpin" />
+                <ScalarProperty Name="lis_detalle_id_municipio" ColumnName="lis_detalle_id_municipio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="contactoEntidadEjecutora">
+            <EntityTypeMapping TypeName="bd_gesproyModel.contactoEntidadEjecutora">
+              <MappingFragment StoreEntitySet="contactoEntidadEjecutora">
+                <ScalarProperty Name="idContactoEntidad" ColumnName="idContactoEntidad" />
+                <ScalarProperty Name="tipoId" ColumnName="tipoId" />
+                <ScalarProperty Name="identificacion" ColumnName="identificacion" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="apellido" ColumnName="apellido" />
+                <ScalarProperty Name="telFijo" ColumnName="telFijo" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="telCelular" ColumnName="telCelular" />
+                <ScalarProperty Name="tipoContacto" ColumnName="tipoContacto" />
+                <ScalarProperty Name="representanteLegal" ColumnName="representanteLegal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="contactoEntidadEjecutora_has_entidadEjecutora">
+            <EntityTypeMapping TypeName="bd_gesproyModel.contactoEntidadEjecutora_has_entidadEjecutora">
+              <MappingFragment StoreEntitySet="contactoEntidadEjecutora_has_entidadEjecutora">
+                <ScalarProperty Name="entidadEjecutora_idEntidadEjecutora1" ColumnName="entidadEjecutora_idEntidadEjecutora1" />
+                <ScalarProperty Name="contactoEntidadEjecutora_idContactoEntidad1" ColumnName="contactoEntidadEjecutora_idContactoEntidad1" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cuenta">
+            <EntityTypeMapping TypeName="bd_gesproyModel.cuenta">
+              <MappingFragment StoreEntitySet="cuenta">
+                <ScalarProperty Name="numero" ColumnName="numero" />
+                <ScalarProperty Name="tipo" ColumnName="tipo" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="proyecto_bpin" ColumnName="proyecto_bpin" />
+                <ScalarProperty Name="lis_detalle_id_banco" ColumnName="lis_detalle_id_banco" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cumplimiento_requisitos">
+            <EntityTypeMapping TypeName="bd_gesproyModel.cumplimiento_requisitos">
+              <MappingFragment StoreEntitySet="cumplimiento_requisitos">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="numero_doc" ColumnName="numero_doc" />
+                <ScalarProperty Name="cumplimiento" ColumnName="cumplimiento" />
+                <ScalarProperty Name="lis_detalle_id_ocad" ColumnName="lis_detalle_id_ocad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="entidadEjecutora">
+            <EntityTypeMapping TypeName="bd_gesproyModel.entidadEjecutora">
+              <MappingFragment StoreEntitySet="entidadEjecutora">
+                <ScalarProperty Name="idEntidadEjecutora" ColumnName="idEntidadEjecutora" />
+                <ScalarProperty Name="nit" ColumnName="nit" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="fuente_financiacion">
+            <EntityTypeMapping TypeName="bd_gesproyModel.fuente_financiacion">
+              <MappingFragment StoreEntitySet="fuente_financiacion">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="fuente_financiacioncol" ColumnName="fuente_financiacioncol" />
+                <ScalarProperty Name="lis_detalle_id_etapa" ColumnName="lis_detalle_id_etapa" />
+                <ScalarProperty Name="lis_detalle_id_tipoenttidad" ColumnName="lis_detalle_id_tipoenttidad" />
+                <ScalarProperty Name="lis_detalle_id_tiporecurso" ColumnName="lis_detalle_id_tiporecurso" />
+                <ScalarProperty Name="lis_detalle_id_identidad" ColumnName="lis_detalle_id_identidad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="fuente_financiacion_detalle">
+            <EntityTypeMapping TypeName="bd_gesproyModel.fuente_financiacion_detalle">
+              <MappingFragment StoreEntitySet="fuente_financiacion_detalle">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="vigencia" ColumnName="vigencia" />
+                <ScalarProperty Name="valor" ColumnName="valor" />
+                <ScalarProperty Name="fuente_financiacion_id" ColumnName="fuente_financiacion_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="fuente_financiacion_has_proyecto">
+            <EntityTypeMapping TypeName="bd_gesproyModel.fuente_financiacion_has_proyecto">
+              <MappingFragment StoreEntitySet="fuente_financiacion_has_proyecto">
+                <ScalarProperty Name="fuente_financiacion_id" ColumnName="fuente_financiacion_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="proyecto_bpin" ColumnName="proyecto_bpin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="incorporacion_presupuestal">
+            <EntityTypeMapping TypeName="bd_gesproyModel.incorporacion_presupuestal">
+              <MappingFragment StoreEntitySet="incorporacion_presupuestal">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="numero_acto_administrativo" ColumnName="numero_acto_administrativo" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="vigencia" ColumnName="vigencia" />
+                <ScalarProperty Name="valor" ColumnName="valor" />
+                <ScalarProperty Name="aplica_vigencia_futura" ColumnName="aplica_vigencia_futura" />
+                <ScalarProperty Name="numero_autorizacion_futura" ColumnName="numero_autorizacion_futura" />
+                <ScalarProperty Name="proyecto_bpin" ColumnName="proyecto_bpin" />
+                <ScalarProperty Name="lis_detalle_id_tipo_acto_adm" ColumnName="lis_detalle_id_tipo_acto_adm" />
+                <ScalarProperty Name="lis_detalle_id_tipo_vigencia_futura" ColumnName="lis_detalle_id_tipo_vigencia_futura" />
+                <ScalarProperty Name="rubro_id" ColumnName="rubro_id" />
+                <ScalarProperty Name="fuente_financiacion_id" ColumnName="fuente_financiacion_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="indicador">
+            <EntityTypeMapping TypeName="bd_gesproyModel.indicador">
+              <MappingFragment StoreEntitySet="indicador">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="meta" ColumnName="meta" />
+                <ScalarProperty Name="lis_detalle_id_unidadmedida" ColumnName="lis_detalle_id_unidadmedida" />
+                <ScalarProperty Name="proyecto_bpin" ColumnName="proyecto_bpin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="indicador_gestion">
+            <EntityTypeMapping TypeName="bd_gesproyModel.indicador_gestion">
+              <MappingFragment StoreEntitySet="indicador_gestion">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="lista_indicador_id" ColumnName="lista_indicador_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="indicador_gestion_detalle">
+            <EntityTypeMapping TypeName="bd_gesproyModel.indicador_gestion_detalle">
+              <MappingFragment StoreEntitySet="indicador_gestion_detalle">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="indicador_gestion_id" ColumnName="indicador_gestion_id" />
+                <ScalarProperty Name="vigencia" ColumnName="vigencia" />
+                <ScalarProperty Name="valor" ColumnName="valor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="indicador_producto">
+            <EntityTypeMapping TypeName="bd_gesproyModel.indicador_producto">
+              <MappingFragment StoreEntitySet="indicador_producto">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="lista_indicador_id" ColumnName="lista_indicador_id" />
+                <ScalarProperty Name="producto_id" ColumnName="producto_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="indicador_producto_detalle">
+            <EntityTypeMapping TypeName="bd_gesproyModel.indicador_producto_detalle">
+              <MappingFragment StoreEntitySet="indicador_producto_detalle">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="indicador_producto_id" ColumnName="indicador_producto_id" />
+                <ScalarProperty Name="vigencia" ColumnName="vigencia" />
+                <ScalarProperty Name="valor" ColumnName="valor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="insumo">
+            <EntityTypeMapping TypeName="bd_gesproyModel.insumo">
+              <MappingFragment StoreEntitySet="insumo">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="vigencia" ColumnName="vigencia" />
+                <ScalarProperty Name="valor" ColumnName="valor" />
+                <ScalarProperty Name="actividad_id" ColumnName="actividad_id" />
+                <ScalarProperty Name="lis_detalle_id_tipo" ColumnName="lis_detalle_id_tipo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="lis_detalle">
+            <EntityTypeMapping TypeName="bd_gesproyModel.lis_detalle">
+              <MappingFragment StoreEntitySet="lis_detalle">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="unidades" ColumnName="unidades" />
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="lis_nombre_id" ColumnName="lis_nombre_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="lis_nombre">
+            <EntityTypeMapping TypeName="bd_gesproyModel.lis_nombre">
+              <MappingFragment StoreEntitySet="lis_nombre">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="lista_indicador">
+            <EntityTypeMapping TypeName="bd_gesproyModel.lista_indicador">
+              <MappingFragment StoreEntitySet="lista_indicador">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="lis_detalle_id_tipoindicador" ColumnName="lis_detalle_id_tipoindicador" />
+                <ScalarProperty Name="lis_detalle_id_sector" ColumnName="lis_detalle_id_sector" />
+                <ScalarProperty Name="codigo_indicador" ColumnName="codigo_indicador" />
+                <ScalarProperty Name="nombre_indicador" ColumnName="nombre_indicador" />
+                <ScalarProperty Name="unidad" ColumnName="unidad" />
+                <ScalarProperty Name="formula" ColumnName="formula" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="objetivo_especifico">
+            <EntityTypeMapping TypeName="bd_gesproyModel.objetivo_especifico">
+              <MappingFragment StoreEntitySet="objetivo_especifico">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="tipo" ColumnName="tipo" />
+                <ScalarProperty Name="proyecto_bpin" ColumnName="proyecto_bpin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="producto">
+            <EntityTypeMapping TypeName="bd_gesproyModel.producto">
+              <MappingFragment StoreEntitySet="producto">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+                <ScalarProperty Name="objetivo_especifico_id" ColumnName="objetivo_especifico_id" />
+                <ScalarProperty Name="lis_detalle_id_unidadmedida" ColumnName="lis_detalle_id_unidadmedida" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="proyecto">
+            <EntityTypeMapping TypeName="bd_gesproyModel.proyecto">
+              <MappingFragment StoreEntitySet="proyecto">
+                <ScalarProperty Name="bpin" ColumnName="bpin" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="objetivo_general" ColumnName="objetivo_general" />
+                <ScalarProperty Name="ano_final" ColumnName="ano_final" />
+                <ScalarProperty Name="ano_inicial" ColumnName="ano_inicial" />
+                <ScalarProperty Name="fecha_creacion" ColumnName="fecha_creacion" />
+                <ScalarProperty Name="entidadEjecutora_idEntidadEjecutora" ColumnName="entidadEjecutora_idEntidadEjecutora" />
+                <ScalarProperty Name="ava_fisico" ColumnName="ava_fisico" />
+                <ScalarProperty Name="ava_financiero" ColumnName="ava_financiero" />
+                <ScalarProperty Name="num_beneficiarios" ColumnName="num_beneficiarios" />
+                <ScalarProperty Name="total_proyecto" ColumnName="total_proyecto" />
+                <ScalarProperty Name="lis_detalle_id_sector" ColumnName="lis_detalle_id_sector" />
+                <ScalarProperty Name="lis_detalle_id_localizacion" ColumnName="lis_detalle_id_localizacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="proyecto_has_usuario_has_rol">
+            <EntityTypeMapping TypeName="bd_gesproyModel.proyecto_has_usuario_has_rol">
+              <MappingFragment StoreEntitySet="proyecto_has_usuario_has_rol">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="usuario_idUsuario" ColumnName="usuario_idUsuario" />
+                <ScalarProperty Name="rol_idRol" ColumnName="rol_idRol" />
+                <ScalarProperty Name="proyecto_bpin" ColumnName="proyecto_bpin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="reintegro">
+            <EntityTypeMapping TypeName="bd_gesproyModel.reintegro">
+              <MappingFragment StoreEntitySet="reintegro">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="documento" ColumnName="documento" />
+                <ScalarProperty Name="num_documento" ColumnName="num_documento" />
+                <ScalarProperty Name="rendimiento_financiero" ColumnName="rendimiento_financiero" />
+                <ScalarProperty Name="valor_reintegro_no_ejecutado" ColumnName="valor_reintegro_no_ejecutado" />
+                <ScalarProperty Name="total_reintegro" ColumnName="total_reintegro" />
+                <ScalarProperty Name="cuenta_numero" ColumnName="cuenta_numero" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="rol">
+            <EntityTypeMapping TypeName="bd_gesproyModel.rol">
+              <MappingFragment StoreEntitySet="rol">
+                <ScalarProperty Name="idRol" ColumnName="idRol" />
+                <ScalarProperty Name="nombreRol" ColumnName="nombreRol" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="rubro">
+            <EntityTypeMapping TypeName="bd_gesproyModel.rubro">
+              <MappingFragment StoreEntitySet="rubro">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="usuario">
+            <EntityTypeMapping TypeName="bd_gesproyModel.usuario">
+              <MappingFragment StoreEntitySet="usuario">
+                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+                <ScalarProperty Name="tipoIdentificacion" ColumnName="tipoIdentificacion" />
+                <ScalarProperty Name="identificacion" ColumnName="identificacion" />
+                <ScalarProperty Name="nombreUno" ColumnName="nombreUno" />
+                <ScalarProperty Name="nombreDos" ColumnName="nombreDos" />
+                <ScalarProperty Name="apellidoUno" ColumnName="apellidoUno" />
+                <ScalarProperty Name="apellidoDos" ColumnName="apellidoDos" />
+                <ScalarProperty Name="telFijo" ColumnName="telFijo" />
+                <ScalarProperty Name="telCelular" ColumnName="telCelular" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="tipoVinculacion" ColumnName="tipoVinculacion" />
+                <ScalarProperty Name="cargo" ColumnName="cargo" />
+                <ScalarProperty Name="fechaCulminacion" ColumnName="fechaCulminacion" />
+                <ScalarProperty Name="usuario1" ColumnName="usuario" />
+                <ScalarProperty Name="clave" ColumnName="clave" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5141cf864d86410ca0e48ca4035af739" Name="Diagram1">
+        <EntityTypeShape EntityType="bd_gesproyModel.actividad" Width="1.5" PointX="5.25" PointY="28.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="bd_gesproyModel.actividad_detalle" Width="1.5" PointX="7.5" PointY="16.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="bd_gesproyModel.actividad_mga" Width="1.5" PointX="8.25" PointY="28.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="bd_gesproyModel.acuerdoAprobacion" Width="1.5" PointX="7.5" PointY="36.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="bd_gesproyModel.alerta" Width="1.5" PointX="13.5" PointY="27.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="bd_gesproyModel.auditoria" Width="1.5" PointX="8.25" PointY="24.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="bd_gesproyModel.contactoEntidadEjecutora" Width="1.5" PointX="9" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="bd_gesproyModel.contactoEntidadEjecutora_has_entidadEjecutora" Width="1.5" PointX="11.25" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="bd_gesproyModel.cuenta" Width="1.5" PointX="5.25" PointY="24.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="bd_gesproyModel.cumplimiento_requisitos" Width="1.5" PointX="5.25" PointY="43.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="bd_gesproyModel.entidadEjecutora" Width="1.5" PointX="9" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="bd_gesproyModel.fuente_financiacion" Width="1.5" PointX="5.25" PointY="46.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="bd_gesproyModel.fuente_financiacion_detalle" Width="1.5" PointX="7.5" PointY="47" IsExpanded="true" />
+        <EntityTypeShape EntityType="bd_gesproyModel.fuente_financiacion_has_proyecto" Width="1.5" PointX="7.5" PointY="44" IsExpanded="true" />
+        <EntityTypeShape EntityType="bd_gesproyModel.incorporacion_presupuestal" Width="1.5" PointX="10.5" PointY="36.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="bd_gesproyModel.indicador" Width="1.5" PointX="5.25" PointY="32.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="bd_gesproyModel.indicador_gestion" Width="1.5" PointX="7.5" PointY="54.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="bd_gesproyModel.indicador_gestion_detalle" Width="1.5" PointX="9.75" PointY="54.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="bd_gesproyModel.indicador_producto" Width="1.5" PointX="7.5" PointY="51.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="bd_gesproyModel.indicador_producto_detalle" Width="1.5" PointX="9.75" PointY="51.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="bd_gesproyModel.insumo" Width="1.5" PointX="10.5" PointY="23.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="bd_gesproyModel.lis_detalle" Width="1.5" PointX="3" PointY="26.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="bd_gesproyModel.lis_nombre" Width="1.5" PointX="0.75" PointY="28.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="bd_gesproyModel.lista_indicador" Width="1.5" PointX="5.25" PointY="53.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="bd_gesproyModel.objetivo_especifico" Width="1.5" PointX="13.5" PointY="30" IsExpanded="true" />
+        <EntityTypeShape EntityType="bd_gesproyModel.producto" Width="1.5" PointX="8.25" PointY="32.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="bd_gesproyModel.proyecto" Width="1.5" PointX="11.25" PointY="26.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="bd_gesproyModel.proyecto_has_usuario_has_rol" Width="1.5" PointX="16.5" PointY="28.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="bd_gesproyModel.reintegro" Width="1.5" PointX="7.5" PointY="20.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="bd_gesproyModel.rol" Width="1.5" PointX="14.25" PointY="24.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="bd_gesproyModel.rubro" Width="1.5" PointX="8.25" PointY="41.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="bd_gesproyModel.usuario" Width="1.5" PointX="14.25" PointY="33" IsExpanded="true" />
+        <AssociationConnector Association="bd_gesproyModel.fk_actividad_actividad_mga1" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_gesproyModel.fk_actividad_detalle_actividad1" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_gesproyModel.fk_actividad_lis_detalle2" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_gesproyModel.fk_actividad_lis_detalle1" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_gesproyModel.fk_actividad_producto1" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_gesproyModel.fk_insumo_actividad1" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_gesproyModel.fk_acuerdoAprobacion_fuente_financiacion1" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_gesproyModel.fk_acuerdoAprobacion_lis_detalle1" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_gesproyModel.fk_acuerdoAprobacion_proyecto2" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_gesproyModel.fk_alerta_proyecto1" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_gesproyModel.fk_auditoria_lis_detalle1" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_gesproyModel.fk_auditoria_proyecto1" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_gesproyModel.fk_contactoEntidadEjecutora_has_entidadEjecutora1_contactoEnt2" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_gesproyModel.fk_contactoEntidadEjecutora_has_entidadEjecutora1_entidadEjec2" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_gesproyModel.fk_cuenta_lis_detalle1" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_gesproyModel.fk_cuenta_proyecto1" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_gesproyModel.fk_reintegro_cuenta1" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_gesproyModel.fk_cumplimiento_requisitos_lis_detalle1" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_gesproyModel.fk_proyecto_entidadEjecutora1" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_gesproyModel.fk_fuente_financiacion_detalle_fuente_financiacion1" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_gesproyModel.fk_fuente_financiacion_has_proyecto_fuente_financiacion1" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_gesproyModel.fk_fuente_financiacion_lis_detalle1" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_gesproyModel.fk_fuente_financiacion_lis_detalle2" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_gesproyModel.fk_fuente_financiacion_lis_detalle3" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_gesproyModel.fk_fuente_financiacion_lis_detalle4" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_gesproyModel.fk_incorporacion_presupuestal_fuente_financiacion1" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_gesproyModel.fk_fuente_financiacion_has_proyecto_proyecto2" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_gesproyModel.fk_incorporacion_presupuestal_lis_detalle1" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_gesproyModel.fk_incorporacion_presupuestal_lis_detalle2" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_gesproyModel.fk_incorporacion_presupuestal_proyecto1" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_gesproyModel.fk_incorporacion_presupuestal_rubro1" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_gesproyModel.fk_indicador_lis_detalle1" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_gesproyModel.fk_indicador_proyecto2" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_gesproyModel.fk_indicador_gestion_detalle_indicador_gestion1" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_gesproyModel.fk_indicador_gestion_lista_indicador1" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_gesproyModel.fk_indicador_producto_detalle_indicador_producto1" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_gesproyModel.fk_indicador_producto_lista_indicador1" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_gesproyModel.fk_indicador_producto_producto1" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_gesproyModel.fk_insumo_lis_detalle1" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_gesproyModel.fk_lis_detalle_lis_nombre" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_gesproyModel.fk_lista_indicador_lis_detalle1" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_gesproyModel.fk_lista_indicador_lis_detalle2" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_gesproyModel.fk_producto_lis_detalle1" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_gesproyModel.fk_proyecto_lis_detalle1" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_gesproyModel.fk_proyecto_lis_detalle2" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_gesproyModel.fk_objetivo_especifico_proyecto1" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_gesproyModel.fk_producto_objetivo_especifico1" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_gesproyModel.fk_proyecto_has_usuario_proyecto2" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_gesproyModel.fk_proyecto_has_usuario_rol1" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_gesproyModel.fk_proyecto_has_usuario_usuario1" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
