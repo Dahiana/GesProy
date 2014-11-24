@@ -69,7 +69,7 @@
     <Compile Include="Modelo\contactoEntidadEjecutora.cs">
       <DependentUpon>ModeloGesproy.tt</DependentUpon>
     </Compile>
-    <Compile Include="Modelo\contactoEntidadEjecutora_has_entidadEjecutora.cs">
+    <Compile Include="Modelo\contactoEntidadEjecutora_has_entidadEjecutora1.cs">
       <DependentUpon>ModeloGesproy.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelo\cuenta.cs">
@@ -79,6 +79,12 @@
       <DependentUpon>ModeloGesproy.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelo\entidadEjecutora.cs">
+      <DependentUpon>ModeloGesproy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\fuenteFinanciacion.cs">
+      <DependentUpon>ModeloGesproy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\fuenteFinanciacion_has_proyecto.cs">
       <DependentUpon>ModeloGesproy.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelo\fuente_financiacion.cs">
@@ -144,7 +150,7 @@
     <Compile Include="Modelo\proyecto.cs">
       <DependentUpon>ModeloGesproy.tt</DependentUpon>
     </Compile>
-    <Compile Include="Modelo\proyecto_has_usuario_has_rol.cs">
+    <Compile Include="Modelo\proyecto_has_usuario.cs">
       <DependentUpon>ModeloGesproy.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelo\reintegro.cs">
@@ -156,19 +162,25 @@
     <Compile Include="Modelo\rubro.cs">
       <DependentUpon>ModeloGesproy.tt</DependentUpon>
     </Compile>
+    <Compile Include="Modelo\sysdiagrams.cs">
+      <DependentUpon>ModeloGesproy.tt</DependentUpon>
+    </Compile>
     <Compile Include="Modelo\usuario.cs">
+      <DependentUpon>ModeloGesproy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\usuario_has_rol_has_proyecto.cs">
       <DependentUpon>ModeloGesproy.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.Config">
-      <SubType>Designer</SubType>
-    </None>
     <EntityDeploy Include="Modelo\ModeloGesproy.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>ModeloGesproy.Designer.cs</LastGenOutput>
     </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
     <None Include="Modelo\ModeloGesproy.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>ModeloGesproy.edmx</DependentUpon>
