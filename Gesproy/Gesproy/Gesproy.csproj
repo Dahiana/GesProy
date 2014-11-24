@@ -150,6 +150,7 @@
     <Compile Include="Controllers\ReintegroController.cs" />
     <Compile Include="Controllers\RolController.cs" />
     <Compile Include="Controllers\RubroController.cs" />
+    <Compile Include="Controllers\UploadController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -376,6 +377,7 @@
     <Content Include="Views\ActividadDetalle\Edit.cshtml" />
     <Content Include="Views\ActividadDetalle\Index.cshtml" />
     <Content Include="Views\Shared\_InicioGeneral.cshtml" />
+    <Content Include="Views\Upload\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CapaDatos\CapaDatos.csproj">
