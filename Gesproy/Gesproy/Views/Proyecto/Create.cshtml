@@ -113,10 +113,10 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.lis_detalle_id_localizacion, "lis_detalle_id_localizacion", new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.localizacion, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("lis_detalle_id_localizacion", String.Empty)
-                @Html.ValidationMessageFor(model => model.lis_detalle_id_localizacion)
+                @Html.EditorFor(model => model.localizacion)
+                @Html.ValidationMessageFor(model => model.localizacion)
             </div>
         </div>
 

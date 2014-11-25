@@ -39,13 +39,13 @@
             @Html.DisplayNameFor(model => model.total_proyecto)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.localizacion)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.entidadEjecutora.nit)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.lis_detalle.codigo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.lis_detalle1.codigo)
         </th>
         <th></th>
     </tr>
@@ -80,13 +80,13 @@
             @Html.DisplayFor(modelItem => item.total_proyecto)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.localizacion)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.entidadEjecutora.nit)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.lis_detalle.codigo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.lis_detalle1.codigo)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.bpin }) |

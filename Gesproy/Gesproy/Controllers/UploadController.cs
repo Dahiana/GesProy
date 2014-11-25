@@ -1,9 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.OleDb;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Diagnostics;
+using System.Data.SqlClient; 
 
 namespace Gesproy.Controllers
 {
@@ -13,13 +17,38 @@ namespace Gesproy.Controllers
         // GET: /Upload/
         public ActionResult Index(HttpPostedFileBase archivo)
         {
+            var nombreArchivo = "";
+            var path= "";
+
             if (archivo != null && archivo.ContentLength > 0)
             {
-                var nombreArchivo = Path.GetFileName(archivo.FileName);
-                var path = Path.Combine(Server.MapPath("~/App_Data/"), nombreArchivo);
+                nombreArchivo = Path.GetFileName(archivo.FileName);
+                path = Path.Combine(Server.MapPath("~/App_Data/"), nombreArchivo);
                 archivo.SaveAs(path);
+                //EJECUTAR, NO FUNCIONA CON GO
+                System.IO.StreamReader sr;
+                String str; //para almacenar el Script 
+                sr = System.IO.File.OpenText(path); //ubicacion del archivo de texto
+                str = sr.ReadToEnd();//almacenamiento del script
+                sr.Close();//cerrar archivo
+                //cadena de conexion
+                SqlConnection conex = new SqlConnection(@"Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=bd_gesproy;Data Source=PC11\SQLSERVERCI2DT2;user id=sa;password=ci2dt2@ucaldas");
+                //inicializar conexion
+                conex.Open();
+                //Ejecutando Script.
+                SqlCommand cm = new SqlCommand(str, conex);
+                cm.ExecuteNonQuery();
+                //cerrando la conexion
+                conex.Dispose();
+
+                return View();
             }
-            return View();
+            else 
+            {
+                return View();
+            }
+
+          
         }
        
 

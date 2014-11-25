@@ -17,7 +17,7 @@ namespace Gesproy.Controllers
         // GET: /Proyecto/
         public ActionResult Index()
         {
-            var proyecto = db.proyecto.Include(p => p.entidadEjecutora).Include(p => p.lis_detalle).Include(p => p.lis_detalle1);
+            var proyecto = db.proyecto.Include(p => p.entidadEjecutora).Include(p => p.lis_detalle);
             return View(proyecto.ToList());
         }
 
@@ -41,7 +41,6 @@ namespace Gesproy.Controllers
         {
             ViewBag.entidadEjecutora_idEntidadEjecutora = new SelectList(db.entidadEjecutora, "idEntidadEjecutora", "nit");
             ViewBag.lis_detalle_id_sector = new SelectList(db.lis_detalle, "id", "codigo");
-            ViewBag.lis_detalle_id_localizacion = new SelectList(db.lis_detalle, "id", "codigo");
             return View();
         }
 
@@ -50,7 +49,7 @@ namespace Gesproy.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include="bpin,nombre,objetivo_general,ano_final,ano_inicial,fecha_creacion,entidadEjecutora_idEntidadEjecutora,ava_fisico,ava_financiero,num_beneficiarios,total_proyecto,lis_detalle_id_sector,lis_detalle_id_localizacion")] proyecto proyecto)
+        public ActionResult Create([Bind(Include="bpin,nombre,objetivo_general,ano_final,ano_inicial,fecha_creacion,entidadEjecutora_idEntidadEjecutora,ava_fisico,ava_financiero,num_beneficiarios,total_proyecto,lis_detalle_id_sector,localizacion")] proyecto proyecto)
         {
             if (ModelState.IsValid)
             {
@@ -61,7 +60,6 @@ namespace Gesproy.Controllers
 
             ViewBag.entidadEjecutora_idEntidadEjecutora = new SelectList(db.entidadEjecutora, "idEntidadEjecutora", "nit", proyecto.entidadEjecutora_idEntidadEjecutora);
             ViewBag.lis_detalle_id_sector = new SelectList(db.lis_detalle, "id", "codigo", proyecto.lis_detalle_id_sector);
-            ViewBag.lis_detalle_id_localizacion = new SelectList(db.lis_detalle, "id", "codigo", proyecto.lis_detalle_id_localizacion);
             return View(proyecto);
         }
 
@@ -79,7 +77,6 @@ namespace Gesproy.Controllers
             }
             ViewBag.entidadEjecutora_idEntidadEjecutora = new SelectList(db.entidadEjecutora, "idEntidadEjecutora", "nit", proyecto.entidadEjecutora_idEntidadEjecutora);
             ViewBag.lis_detalle_id_sector = new SelectList(db.lis_detalle, "id", "codigo", proyecto.lis_detalle_id_sector);
-            ViewBag.lis_detalle_id_localizacion = new SelectList(db.lis_detalle, "id", "codigo", proyecto.lis_detalle_id_localizacion);
             return View(proyecto);
         }
 
@@ -88,7 +85,7 @@ namespace Gesproy.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="bpin,nombre,objetivo_general,ano_final,ano_inicial,fecha_creacion,entidadEjecutora_idEntidadEjecutora,ava_fisico,ava_financiero,num_beneficiarios,total_proyecto,lis_detalle_id_sector,lis_detalle_id_localizacion")] proyecto proyecto)
+        public ActionResult Edit([Bind(Include="bpin,nombre,objetivo_general,ano_final,ano_inicial,fecha_creacion,entidadEjecutora_idEntidadEjecutora,ava_fisico,ava_financiero,num_beneficiarios,total_proyecto,lis_detalle_id_sector,localizacion")] proyecto proyecto)
         {
             if (ModelState.IsValid)
             {
@@ -98,7 +95,6 @@ namespace Gesproy.Controllers
             }
             ViewBag.entidadEjecutora_idEntidadEjecutora = new SelectList(db.entidadEjecutora, "idEntidadEjecutora", "nit", proyecto.entidadEjecutora_idEntidadEjecutora);
             ViewBag.lis_detalle_id_sector = new SelectList(db.lis_detalle, "id", "codigo", proyecto.lis_detalle_id_sector);
-            ViewBag.lis_detalle_id_localizacion = new SelectList(db.lis_detalle, "id", "codigo", proyecto.lis_detalle_id_localizacion);
             return View(proyecto);
         }
 
