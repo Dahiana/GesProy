@@ -27,12 +27,26 @@ namespace Gesproy.Controllers
                 archivo.SaveAs(path);
                 //EJECUTAR, NO FUNCIONA CON GO
                 System.IO.StreamReader sr;
-                String str; //para almacenar el Script 
+                String str=""; //para almacenar el Script
+                String linea = " ";
                 sr = System.IO.File.OpenText(path); //ubicacion del archivo de texto
-                str = sr.ReadToEnd();//almacenamiento del script
+                while (linea != null)
+                {
+                    linea = sr.ReadLine();
+                    if (linea != null)
+                    {
+                        if (!linea.StartsWith("GO") && !linea.StartsWith("SET LANGUAGE"))
+                        {
+                            str = str + linea + "\n";
+                            
+                        }
+                    }
+                }
+                
+                //str = sr.ReadToEnd();//almacenamiento del script
                 sr.Close();//cerrar archivo
                 //cadena de conexion
-                SqlConnection conex = new SqlConnection(@"Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=bd_gesproy;Data Source=PC11\SQLSERVERCI2DT2;user id=sa;password=ci2dt2@ucaldas");
+                SqlConnection conex = new SqlConnection(@"Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=MGA_Distribucion;Data Source=DAHIANA-PC\SQLSERVERCI2DT2;user id=sa;password=ci2dt2@ucaldas");
                 //inicializar conexion
                 conex.Open();
                 //Ejecutando Script.
@@ -40,7 +54,7 @@ namespace Gesproy.Controllers
                 cm.ExecuteNonQuery();
                 //cerrando la conexion
                 conex.Dispose();
-
+                ViewData["Mensaje"]="Insertado con éxito";
                 return View();
             }
             else 
