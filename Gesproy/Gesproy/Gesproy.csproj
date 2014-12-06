@@ -142,6 +142,7 @@
     <Compile Include="Controllers\IndicadorGestionDetalleController.cs" />
     <Compile Include="Controllers\IndicadorProductoController.cs" />
     <Compile Include="Controllers\IndicadorProductoDetalleController.cs" />
+    <Compile Include="Controllers\InicioSesionController.cs" />
     <Compile Include="Controllers\InsumoController.cs" />
     <Compile Include="Controllers\ObjetivoEspecificoController.cs" />
     <Compile Include="Controllers\ProductoController.cs" />
@@ -183,6 +184,8 @@
     <Content Include="Content\plantillagesproy\images\postprinticon.png" />
     <Content Include="Content\plantillagesproy\images\postquote.png" />
     <Content Include="Content\plantillagesproy\images\preloader-01.gif" />
+    <Content Include="Content\plantillagesproy\images\roundedge-blue-left.gif" />
+    <Content Include="Content\plantillagesproy\images\roundedge-blue-right.gif" />
     <Content Include="Content\plantillagesproy\images\spacer.gif" />
     <Content Include="Content\plantillagesproy\images\submit.png" />
     <Content Include="Content\plantillagesproy\images\submit_hover.png" />
@@ -203,6 +206,7 @@
     <Content Include="Content\plantillagesproy\style.css" />
     <Content Include="Content\plantillagesproy\style.ie7.css" />
     <Content Include="Content\plantillagesproy\style.responsive.css" />
+    <Content Include="Content\plantillagesproy\style2.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -378,6 +382,8 @@
     <Content Include="Views\ActividadDetalle\Index.cshtml" />
     <Content Include="Views\Shared\_InicioGeneral.cshtml" />
     <Content Include="Views\Upload\Index.cshtml" />
+    <Content Include="Views\Shared\_InicioSesion.cshtml" />
+    <Content Include="Views\InicioSesion\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CapaDatos\CapaDatos.csproj">
