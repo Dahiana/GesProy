@@ -1,0 +1,49 @@
+﻿@model CapaDatos.Modelo.usuario
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_InicioSesion.cshtml";
+}
+
+@using (Html.BeginForm("Login", "InicioSesion", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    if (@ViewBag.Message != null)
+    {
+        <div style="border:1px solid red">
+            @ViewBag.Message
+        </div>
+    }
+    <table>
+        <tr>
+            <td>Nombre Usuario</td>
+            <td>@Html.TextBoxFor(a => a.usuario1)</td>
+            <td>@Html.ValidationMessageFor(a => a.usuario1)</td>
+        </tr>
+        <tr>
+            <td>
+               Contraseña
+            </td>
+            <td>
+                @Html.PasswordFor(a => a.clave)
+            </td>
+            <td>
+                @Html.ValidationMessageFor(a => a.clave)
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" value="Iniciar" />
+            </td>
+            <td></td>
+        </tr>
+    </table>
+}
+
+@* This below line is for create javascript section *@
+
+@*@section Scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+}*@

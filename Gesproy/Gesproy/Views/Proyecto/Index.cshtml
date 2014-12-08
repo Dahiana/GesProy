@@ -4,12 +4,9 @@
     ViewBag.Title = "Proyecto";
 }
 
-<h2>Index</h2>
+<h2>Proyectos:</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
+<table class="table" border="1">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.nombre)
@@ -89,9 +86,7 @@
             @Html.DisplayFor(modelItem => item.lis_detalle.codigo)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.bpin }) |
-            @Html.ActionLink("Details", "Details", new { id=item.bpin }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.bpin })
+            @Html.ActionLink("Details", "Details", new { id=item.bpin })
         </td>
     </tr>
 }

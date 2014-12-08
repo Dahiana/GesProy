@@ -270,10 +270,7 @@
     <Content Include="Views\ContactoHasEntidad\Details.cshtml" />
     <Content Include="Views\ContactoHasEntidad\Edit.cshtml" />
     <Content Include="Views\ContactoHasEntidad\Index.cshtml" />
-    <Content Include="Views\Proyecto\Create.cshtml" />
-    <Content Include="Views\Proyecto\Delete.cshtml" />
     <Content Include="Views\Proyecto\Details.cshtml" />
-    <Content Include="Views\Proyecto\Edit.cshtml" />
     <Content Include="Views\Proyecto\Index.cshtml" />
     <Content Include="Views\CumplimientoRequisitos\Create.cshtml" />
     <Content Include="Views\CumplimientoRequisitos\Delete.cshtml" />
@@ -383,7 +380,7 @@
     <Content Include="Views\Shared\_InicioGeneral.cshtml" />
     <Content Include="Views\Upload\Index.cshtml" />
     <Content Include="Views\Shared\_InicioSesion.cshtml" />
-    <Content Include="Views\InicioSesion\Index.cshtml" />
+    <Content Include="Views\InicioSesion\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CapaDatos\CapaDatos.csproj">

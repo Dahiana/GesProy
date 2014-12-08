@@ -18,7 +18,8 @@
                     <div class="art-object345940188" data-left="83.95%"></div>
                 </div>
                 <h1 class="art-headline" data-left="38.33%">
-                    <a href="#">Gestión y monitoreo de proyectos</a>
+                    <a href="#">Gestión y monitoreo de proyectos </a>
+                    <a>Usuario: @Session["LogedUserID"].ToString()</a>
                 </h1>
                 <h2 class="art-slogan" data-left="40.82%">GesProy</h2>
             </header>
@@ -27,7 +28,7 @@
                     <li class="active1">@Html.ActionLink("Inicio", "Index", "Proyecto")</li>
                     <li class="active1">@Html.ActionLink("Buscar Proyectos", "Index", "Proyecto")</li>
                     <li class="active1">@Html.ActionLink("Documentación/Ayuda", "Index", "Proyecto")</li>
-                    <li class="active1">@Html.ActionLink("Cerrar Sesión", "Index", "Proyecto")</li>
+                    <li class="active1">@Html.ActionLink("Cerrar Sesión", "Login", "InicioSesion")</li>
                 </ul>
                 </nav>
             <nav class="art-nav">
